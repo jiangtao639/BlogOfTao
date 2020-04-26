@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-04-26T15:16:03.419Z</updated>
+    <updated>2020-04-26T15:18:23.983Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,46 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[第一次建站，冲冲冲！]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/di-yi-ci-jian-zhan-chong-chong-chong/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/di-yi-ci-jian-zhan-chong-chong-chong/">
+        </link>
+        <updated>2020-04-26T15:17:00.000Z</updated>
+        <content type="html"><![CDATA[<p>分享一段代码吧<br>
+from turtle  import *</p>
+<p>color('black','red')<br>
+begin_fill()</p>
+<p>penup()<br>
+goto (50,50)<br>
+pendown()</p>
+<p>right(45)<br>
+goto(100,0)<br>
+left(90)<br>
+fd(120)<br>
+circle(50,225)</p>
+<p>penup()<br>
+goto(0,0)<br>
+pendown()</p>
+<p>left(135)<br>
+fd(120)<br>
+circle(50,225)<br>
+seth(90)<br>
+circle(50,225)</p>
+<p>fd(121)<br>
+end_fill()<br>
+left(56)</p>
+<p>penup()<br>
+goto(-210,40)<br>
+pendown()<br>
+goto(0,80)<br>
+penup()<br>
+goto(160,110)<br>
+pendown()<br>
+goto(320,140)</p>
+<p>done()</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/hello-gridea/</id>
