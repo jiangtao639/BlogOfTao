@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
-    <title>Gridea</title>
-    <updated>2020-04-26T14:49:31.371Z</updated>
+    <title>TAOJay &amp; Eating&apos;s Blog</title>
+    <updated>2020-04-26T14:56:12.962Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>为了更好的明天加油！</subtitle>
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/hello-gridea/</id>
