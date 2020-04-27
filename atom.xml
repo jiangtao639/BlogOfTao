@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-04-27T04:07:37.867Z</updated>
+    <updated>2020-04-27T04:50:26.930Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[每天进步一点点]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/mei-tian-jin-bu-yi-dian-dian/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/mei-tian-jin-bu-yi-dian-dian/">
+        </link>
+        <updated>2020-04-27T04:10:58.000Z</updated>
+        <content type="html"><![CDATA[<p>每日一句<br>
+Everyone is born with genius, but most people only keep it a few minutes.</p>
+<p>IT翻译原文：<br>
+OS microkernel<br>
+Extensibility is enhanced because many components previously considered to be parts of the OS kernel, e.g. process scheduling, now reside outside it in the OS. These components can be replaced at will to modify or extend the OS behaviour. It is thus possible to use the same microkernel to implement time sharing or dedicated real time systems. This simplifies the development of an OS for a new application domain.</p>
+<p>&lt;我的翻译&gt;<br>
+Operating System 微内核<br>
+因为许多成分先前被认为是微内核的组分，例如进程计划，现在已被排除在操作系统外，所以可延伸性是提升了。这些组分可以根据意愿被替换来修改或者延申OS的功能。因此使用相同的为微内核系统来完成时间共享或专门实时系统是可能的。这简化了OS在新应用领域的发展。</p>
+<p>&lt;答案&gt;<br>
+由于以前被认为是内核一部分的组件(如进程调度)现在被放在内核之外，因此可扩充性也增强了。如果想修改或扩展系统性能，可以通过替换这些组件实现，可以使用同一个微内核来实现分时或实时系统，这简化了在新的应用域中对操作系统的开发。</p>
+<p>读完一本书翻译原文：<br>
+Now when Squealer described the scene so graphically, it seemed to the animals that they did remember it. At any rate, they remembered that at the critical moment of the battle Snowball had turned to flee. But Boxer was still a little uneasy.<br>
+‘I do not believe that Snowball was a traitor at the beginning,’ he said finally. ‘What he has done since is different. But I believe that at the Battle of the Cowshed he was a good comrade.’<br>
+‘Our Leader, Comrade Napoleon,’ announced Squealer, speaking very slowly and firmly, ‘has stated categorically — categorically, comrade — that Snowball was Jones’s agent from the very beginning — yes, and from long before the Rebellion was ever thought of.’<br>
+‘Ah, that is different!’ said Boxer. ‘If Comrade Napoleon says it, it must be<br>
+right.’<br>
+‘That is the true spirit, comrade!’ cried Squealer, but it was noticed he cast a very ugly look at Boxer with his little twinkling eyes. He turned to go, then paused and added impressively: ‘I warn every animal on this farm to keep his eyes very wide open. For we have reason to think that some of Snowball’s secret agents are lurking among us at this moment! ’</p>
+<p>&lt;我的翻译&gt;<br>
+现在当S图像化的描绘情景时，动物们好像确实记得这件事。至少，他们记得在战斗的关键时刻雪球已经转为逃避。但是拳击手仍有点不适。<br>
+我不相信雪球一开始就是个叛徒，他最终说到，<br>
+翻译不下去了，什么脑残情节！罢工ps这本书是《动物世界》</p>
+<!-- Answer -->
+<p>既然斯奎拉把那一场景描述得如此形象生动，动物们便似乎觉得，他们果真记得有这么回事。不管怎么说，他们记得在激战的关键时刻，斯诺鲍曾经掉头逃过。但是鲍克瑟还有一些感到不自在。</p>
+<p>他终于说道：“我不相信斯诺鲍一开始就是一个叛徒。他后来的所作所为是另一回事，但我认为在牛棚大战中，他是一个好同志。”</p>
+<p>“我们的领袖，拿破仑同志，”斯奎拉以缓慢而坚定的语气宣告，“已经明确地——明确了，同志们——声明斯诺鲍一开始就是琼斯的奸细，是的，远在想着起义前就是的。”</p>
+<p>“噢，这就不一样了！如果这是拿破仑同志说的，那就肯定不会错。”鲍克瑟说。</p>
+<p>“这是事实的真相，同志们！”斯奎拉大叫着。但动物们注意到他那闪亮的小眼睛向鲍克瑟怪模怪样地瞥了一眼。在他转身要走时，停下来又强调了一句：“我提醒庄园的每个动物要睁大眼睛。我们有理由相信，眼下，斯诺鲍的密探正在我们中间潜伏着！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[第一次建站，冲冲冲！]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/di-yi-ci-jian-zhan-chong-chong-chong/</id>
