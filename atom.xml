@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-04-30T08:55:23.867Z</updated>
+    <updated>2020-05-01T07:19:55.902Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -11,13 +11,23 @@
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
     <entry>
+        <title type="html"><![CDATA[五一拖更！]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/wu-yi-tuo-geng/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/wu-yi-tuo-geng/">
+        </link>
+        <updated>2020-05-01T07:18:54.000Z</updated>
+        <content type="html"><![CDATA[<p>😁😁😁<br>
+<img src="https://jiangtao639.github.io/jianglab//post-images/1588317588179.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[An Ounce of Prevention Is Worth a Pound of Cure]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/an-ounce-of-prevention-is-worth-a-pound-of-cure/</id>
         <link href="https://jiangtao639.github.io/jianglab/post/an-ounce-of-prevention-is-worth-a-pound-of-cure/">
         </link>
         <updated>2020-04-30T07:30:38.000Z</updated>
         <content type="html"><![CDATA[<audio controls>
-    <source src="C:/Users/TAOjay/Desktop/03a8f71a-3950-41a8-8b29-f3feb020dd1c.mp3" type="audio/mpeg">
+    <source src="file://C:/Users/TAOjay/Documents/Gridea/post-images/03a8f71a-3950-41a8-8b29-f3feb020dd1c.mp3" type="audio/mpeg">
 </audio>
 Sometimes in life, you need to act quickly. Thinking too much about a problem does not always help. It can hold us back.
 <p>We have expressions that describe this way of thinking.</p>
