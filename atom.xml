@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-05-05T04:27:41.394Z</updated>
+    <updated>2020-05-05T04:58:34.464Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[时隔3月15天再次相见！]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/shi-ge-3-yue-15-tian-zai-ci-xiang-jian/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/shi-ge-3-yue-15-tian-zai-ci-xiang-jian/">
+        </link>
+        <updated>2020-05-05T04:54:45.000Z</updated>
+        <content type="html"><![CDATA[<p>开心o(<em>￣▽￣</em>)ブ</p>
+<video width="1000" height="750" controls>
+        <source src="https://f.video.weibocdn.com/1Mt6cB6Ylx07D0pQ2tYA01041200cubz0E010.mp4?label=mp4_720p&template=720x720.25.0&trans_finger=721584770189073627c6ee9d880087b3&Expires=1588657519&ssig=c6WeZqhsUb&KID=unistore,video" type="video/mp4">
+</video>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Don't Waste Time 'Barking up the Wrong Tree']]></title>
         <id>https://jiangtao639.github.io/jianglab/post/dont-waste-time-barking-up-the-wrong-tree/</id>
@@ -376,46 +387,6 @@ right.’<br>
 <p>“我们的领袖，拿破仑同志，”斯奎拉以缓慢而坚定的语气宣告，“已经明确地——明确了，同志们——声明斯诺鲍一开始就是琼斯的奸细，是的，远在想着起义前就是的。”</p>
 <p>“噢，这就不一样了！如果这是拿破仑同志说的，那就肯定不会错。”鲍克瑟说。</p>
 <p>“这是事实的真相，同志们！”斯奎拉大叫着。但动物们注意到他那闪亮的小眼睛向鲍克瑟怪模怪样地瞥了一眼。在他转身要走时，停下来又强调了一句：“我提醒庄园的每个动物要睁大眼睛。我们有理由相信，眼下，斯诺鲍的密探正在我们中间潜伏着！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第一次建站，冲冲冲！]]></title>
-        <id>https://jiangtao639.github.io/jianglab/post/di-yi-ci-jian-zhan-chong-chong-chong/</id>
-        <link href="https://jiangtao639.github.io/jianglab/post/di-yi-ci-jian-zhan-chong-chong-chong/">
-        </link>
-        <updated>2020-04-26T15:17:00.000Z</updated>
-        <content type="html"><![CDATA[<p>分享一段代码吧<br>
-from turtle  import *</p>
-<p>color('black','red')<br>
-begin_fill()</p>
-<p>penup()<br>
-goto (50,50)<br>
-pendown()</p>
-<p>right(45)<br>
-goto(100,0)<br>
-left(90)<br>
-fd(120)<br>
-circle(50,225)</p>
-<p>penup()<br>
-goto(0,0)<br>
-pendown()</p>
-<p>left(135)<br>
-fd(120)<br>
-circle(50,225)<br>
-seth(90)<br>
-circle(50,225)</p>
-<p>fd(121)<br>
-end_fill()<br>
-left(56)</p>
-<p>penup()<br>
-goto(-210,40)<br>
-pendown()<br>
-goto(0,80)<br>
-penup()<br>
-goto(160,110)<br>
-pendown()<br>
-goto(320,140)</p>
-<p>done()</p>
 ]]></content>
     </entry>
 </feed>
