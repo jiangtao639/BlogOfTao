@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-05-06T11:09:42.271Z</updated>
+    <updated>2020-05-07T07:12:41.713Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,177 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Markdown exercise!]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/markdown-exercise/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/markdown-exercise/">
+        </link>
+        <updated>2020-05-07T07:07:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="微软个人">微软个人</h1>
+<h2 id="埃尔嘎嘎">埃尔嘎嘎</h2>
+<p>adfef<br>
+sgdht<br>
+<em>qdw</em><br>
+<strong>sdwwf</strong><br>
+<em><strong>wsdff</strong></em></p>
+<hr>
+<p><s>wrwewewt</s><br>
+~~rwtyy5t5··<br>
+<u>，zlj</u><br>
+<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<ul>
+<li>wqrqr</li>
+<li>qweer</li>
+<li>efrggr
+<ul>
+<li>fgrgtgg
+<ul>
+<li>fgegthh
+<ul>
+<li>dfg;grg</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>fwgg</li>
+</ul>
+<ol>
+<li>
+<p>efrhth</p>
+</li>
+<li>
+<p>erwggh</p>
+</li>
+<li>
+<p>efgh</p>
+<blockquote>
+<p>dsgr</p>
+<blockquote>
+<p>efg</p>
+<blockquote>
+<p>sdf</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>QUKAUI</p>
+<ol>
+<li>的老师</li>
+<li>dfsg</li>
+<li></li>
+</ol>
+<ul>
+<li>fg</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>edf'g<br>
+<code>printf()</code>函数</p>
+<pre><code class="language-python">echo 'akfalefm'
+function test() {
+echo 'test'
+}
+</code></pre>
+<pre><code></code></pre>
+<pre><code>
+```
+
+l链接[baidu](http://www.baidu.com)
+
+```link
+
+```
+
+&lt;http://www.baidu.com&gt;
+
+![alt wef](C:\Users\TAOjay\Desktop\images\Harry potter.jpg)
+
+</code></pre>
+</li>
+</ul>
+<p><kbd>defwff</kbd></p>
+<pre><code class="language-mermaid">graph LR
+A[fangxin] --&gt;B(yuanjiao)
+	B --&gt;C{fdgg}
+	C --&gt;D
+	C --&gt;E
+	F[kfldfk]
+	
+</code></pre>
+<pre><code class="language-mermaid">graph TD
+A--&gt;b--&gt;C{FEFRE}--&gt;DF
+DF--&gt;G
+DF--&gt;H
+I(SHULADKL)
+</code></pre>
+<pre><code class="language-flow">st=&gt;start: 开始框
+op=&gt;operation: 处理框
+cond=&gt;condition: 判断框(是或否?)
+sub1=&gt;subroutine: 子流程
+io=&gt;inputoutput: 输入输出框
+e=&gt;end: 结束框
+st-&gt;op-&gt;cond
+cond(yes)-&gt;io-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op
+</code></pre>
+<pre><code class="language-flow">st=&gt;start: 开始框
+op=&gt;operation: 处理框
+cond=&gt;condition: 判断框(是或否?)
+sub1=&gt;subroutine: 子流程
+io=&gt;inputoutput: 输入输出框
+e=&gt;end: 结束框
+st(right)-&gt;op(right)-&gt;cond
+cond(yes)-&gt;io(bottom)-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op
+</code></pre>
+<pre><code class="language-mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+  sequenceDiagram
+    participant 张三
+    participant 李四
+    张三-&gt;王五: 王五你好吗？
+    loop 健康检查
+        王五-&gt;王五: 与疾病战斗
+    end
+    Note right of 王五: 合理 食物 &lt;br/&gt;看医生...
+    李四--&gt;&gt;张三: 很好!
+    王五-&gt;李四: 你怎么样?
+    李四--&gt;王五: 很好!
+</code></pre>
+<pre><code class="language-mermaid">     gantt
+        dateFormat  YYYY-MM-DD
+        title 软件开发甘特图
+        section 设计
+        需求                      :done,    des1, 2014-01-06,2014-01-08
+        原型                      :active,  des2, 2014-01-09, 3d
+        UI设计                     :         des3, after des2, 5d
+    未来任务                     :         des4, after des3, 5d
+        section 开发
+        学习准备理解需求                      :crit, done, 2014-01-06,24h
+        设计框架                             :crit, done, after des2, 2d
+        开发                                 :crit, active, 3d
+        未来任务                              :crit, 5d
+        耍                                   :2d
+        section 测试
+        功能测试                              :active, a1, after des3, 3d
+        压力测试                               :after a1  , 20h
+        测试报告                               : 48h
+</code></pre>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>awdfefefegeggeefef!! <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[每天进步一点点20200506]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/mei-tian-jin-bu-yi-dian-dian-20200506/</id>
@@ -355,47 +526,6 @@ Maybe they had to try and get a rabbit out of it, Harry thought wildly, that see
 <!-- more -->
 <!-- more -->
 <!-- more -->
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA['Breathing Room' Reduces Stress]]></title>
-        <id>https://jiangtao639.github.io/jianglab/post/breathing-room-reduces-stress/</id>
-        <link href="https://jiangtao639.github.io/jianglab/post/breathing-room-reduces-stress/">
-        </link>
-        <updated>2020-04-28T02:03:21.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>Audio src：https://learningenglish.voanews.com/a/breathing-room-reduces-stress/5367522.html
-</code></pre>
-<p>If you are feeling nervous or stressed, a simple thing can help. Take a deep breath.</p>
-<p>Deep breathing can calm your nerves and lower the chemicals in your body that can lead to stress. If one of your friends is stressed, you can calmly tell them, “Try to take a deep breath.”</p>
-<p>We sometimes describe these as deep cleansing breaths. A long, deep breath feels as if it is cleaning out your body.</p>
-<p>American English has some expressions that use breath or breathing in them. One expression is breathing room. This may sound like a room used especially for breathing. But it is not.</p>
-<p>“Breathing room” gives you time or space to do something, finish something or get relief from something.</p>
-<p>It is what the online dictionary Merriam-Webster defines as a “buffer of time, space or money that allows for freedom of movement or relief from a given source of pressure or stress.”</p>
-<p>So, time, space and money can all give us breathing room.</p>
-<p>Time</p>
-<p>First, here is an example related to time.</p>
-<p>If you have a big work project or school project that is due in one month, you should start immediately if you can. This will give you some breathing room. If something goes wrong, you will have time to deal with it. Or if something fun comes up, like a party, you will have enough breathing room to be able to enjoy yourself.</p>
-<p>If you wait until the very last minute to start your project, you have no breathing room. And that can cause you to feel very stressed.</p>
-<p>Money</p>
-<p>Now, let’s talk about how money can give you breathing room.</p>
-<p>When a country experiences a recession or depression, people who live paycheck-to-paycheck may find themselves in a tough situation. Living paycheck-to-paycheck means you have little money in savings. You need your next paycheck to pay your bills.</p>
-<p>However, if you have some money put aside, you might feel less stressed. For example, having enough money in the bank to pay six months of your rent, would give you some breathing room if the economy took a turn for the worse.</p>
-<p>Space</p>
-<p>Sometimes breathing room refers to actual space around you.</p>
-<p>For example, let’s say you witness a car crash. The driver struggles to get out of the car as people gather around to see if he is okay. You step in to make sure there is enough space between the injured driver and the crowd of people. “Step back! Step back! Give him some breathing room!” you shout.</p>
-<p>Here is another example. Let’s say you must stay at home because of bad weather, or because of an illness, or because a new virus has turned into a pandemic and is forcing the world inside on a stay-at-home order!</p>
-<p>You may find that after a few days -- or even weeks -- you need more breathing room. In other words, you feel like you need more space -- away from those you live with.</p>
-<p>So, you can think of it this way: Breathing room reduces stress. It gives you the time, money or space to get something done or to just feel relaxed.</p>
-<hr>
-<p>Words in This Story<br>
-stress – n. a state of mental tension and worry caused by problems in your life, work, etc.</p>
-<p>calm – adj. not angry, upset, excited, etc.: calmly – adv.</p>
-<p>relief – n. the removal or reducing of something that is painful or unpleasant</p>
-<p>buffer – n. something that lessens the harmful effects of (something)</p>
-<p>allow – v. to permit (someone) to have or do something</p>
-<p>rent – n. money paid for the use of another's property</p>
-<p>take a turn for the worse – expression : to become worse</p>
-<p>relaxed – adj. set or being at rest or at ease</p>
 ]]></content>
     </entry>
 </feed>
