@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-05-10T05:53:17.259Z</updated>
+    <updated>2020-05-10T06:00:00.712Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,126 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[API documentation]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/api-documentation/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/api-documentation/">
+        </link>
+        <updated>2020-05-10T05:59:07.000Z</updated>
+        <content type="html"><![CDATA[<p>This part of the documentation is automatically generated from the PubChemPy source code and comments.</p>
+<h2 id="search-functions">Search functions</h2>
+<ul>
+<li>
+<p><code>pubchempy.``get_compounds</code>(<em>identifier</em>, <em>namespace=u'cid'</em>, <em>searchtype=None</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
+<p>Retrieve the specified compound records from PubChem.Parameters:<strong>identifier</strong> – The compound identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type, one of cid, name, smiles, sdf, inchi, inchikey or formula.<strong>searchtype</strong> – (optional) The advanced search type, one of substructure, superstructure or similarity.<strong>as_dataframe</strong> – (optional) Automatically extract the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that.</p>
+</li>
+<li>
+<p><code>pubchempy.``get_substances</code>(<em>identifier</em>, <em>namespace=u'sid'</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
+<p>Retrieve the specified substance records from PubChem.Parameters:<strong>identifier</strong> – The substance identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type, one of sid, name or sourceid/<source name>.<strong>as_dataframe</strong> – (optional) Automatically extract the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that.</p>
+</li>
+<li>
+<p><code>pubchempy.``get_assays</code>(<em>identifier</em>, <em>namespace=u'aid'</em>, **<em>kwargs</em>)</p>
+<p>Retrieve the specified assay records from PubChem.Parameters:<strong>identifier</strong> – The assay identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type.</p>
+</li>
+<li>
+<p><code>pubchempy.``get_properties</code>(<em>properties</em>, <em>identifier</em>, <em>namespace=u'cid'</em>, <em>searchtype=None</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
+<p>Retrieve the specified properties from PubChem.Parameters:<strong>identifier</strong> – The compound, substance or assay identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type.<strong>searchtype</strong> – (optional) The advanced search type, one of substructure, superstructure or similarity.<strong>as_dataframe</strong> – (optional) Automatically extract the properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a>.</p>
+</li>
+</ul>
+<h2 id="compound">Compound</h2>
+<ul>
+<li>
+<p><em>class</em><code>pubchempy.``Compound</code>(<em>record</em>)</p>
+<p>Corresponds to a single record from the PubChem Compound database.The PubChem Compound database is constructed from the Substance database using a standardization and deduplication process. Each Compound is uniquely identified by a CID.Initialize with a record dict from the PubChem PUG REST service.For most users, the <code>from_cid()</code> class method is probably a better way of creating Compounds.Parameters:<strong>record</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict"><em>dict</em></a>) – A compound record returned by the PubChem PUG REST service.<code>record</code>The raw compound record returned by the PubChem PUG REST service.<em>classmethod</em><code>from_cid</code>(<em>cid</em>, **<em>kwargs</em>)Retrieve the Compound record for the specified CID.Usage:<code>c = Compound.from_cid(6819)</code>Parameters:<strong>cid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Compound Identifier (CID).<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Compound data. Optionally specify a list of the desired properties.synonyms, aids and sids are not included unless explicitly specified using the properties parameter. This is because they each require an extra request.<code>to_series</code>(<em>properties=None</em>)Return a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series"><code>Series</code></a> containing Compound data. Optionally specify a list of the desired properties.synonyms, aids and sids are not included unless explicitly specified using the properties parameter. This is because they each require an extra request.<code>cid</code>The PubChem Compound Identifier (CID).NoteWhen searching using a SMILES or InChI query that is not present in the PubChem Compound database, an automatically generated record may be returned that contains properties that have been calculated on the fly. These records will not have a CID property.<code>elements</code>List of element symbols for atoms in this Compound.<code>atoms</code>List of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atoms</code></a> in this Compound.<code>bonds</code>List of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Bond"><code>Bonds</code></a> between <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atoms</code></a> in this Compound.<code>synonyms</code>A ranked list of all the names associated with this Compound.Requires an extra request. Result is cached.<code>sids</code>Requires an extra request. Result is cached.<code>aids</code>Requires an extra request. Result is cached.<code>charge</code>Formal charge on this Compound.<code>molecular_formula</code>Molecular formula.<code>molecular_weight</code>Molecular Weight.<code>canonical_smiles</code>Canonical SMILES, with no stereochemistry information.<code>isomeric_smiles</code>Isomeric SMILES.<code>inchi</code>InChI string.<code>inchikey</code>InChIKey.<code>iupac_name</code>Preferred IUPAC name.<code>xlogp</code>XLogP.<code>exact_mass</code>Exact mass.<code>monoisotopic_mass</code>Monoisotopic mass.<code>tpsa</code>Topological Polar Surface Area.<code>complexity</code>Complexity.<code>h_bond_donor_count</code>Hydrogen bond donor count.<code>h_bond_acceptor_count</code>Hydrogen bond acceptor count.<code>rotatable_bond_count</code>Rotatable bond count.<code>fingerprint</code>Raw padded and hex-encoded fingerprint, as returned by the PUG REST API.<code>cactvs_fingerprint</code>PubChem CACTVS fingerprint.Each bit in the fingerprint represents the presence or absence of one of 881 chemical substructures.More information at <a href="ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt">ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt</a><code>heavy_atom_count</code>Heavy atom count.<code>isotope_atom_count</code>Isotope atom count.<code>atom_stereo_count</code>Atom stereocenter count.<code>defined_atom_stereo_count</code>Defined atom stereocenter count.<code>undefined_atom_stereo_count</code>Undefined atom stereocenter count.<code>bond_stereo_count</code>Bond stereocenter count.<code>defined_bond_stereo_count</code>Defined bond stereocenter count.<code>undefined_bond_stereo_count</code>Undefined bond stereocenter count.<code>covalent_unit_count</code>Covalently-bonded unit count.</p>
+</li>
+</ul>
+<h2 id="atom">Atom</h2>
+<ul>
+<li>
+<p><em>class</em><code>pubchempy.``Atom</code>(<em>aid</em>, <em>number</em>, <em>x=None</em>, <em>y=None</em>, <em>z=None</em>, <em>charge=0</em>)</p>
+<p>Class to represent an atom in a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a>.Initialize with an atom ID, atomic number, coordinates and optional change.Parameters:<strong>aid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Atom ID<strong>number</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Atomic number<strong>x</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – X coordinate.<strong>y</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – Y coordinate.<strong>z</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – (optional) Z coordinate.<strong>charge</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – (optional) Formal charge on atom.<code>aid</code><em>= None</em>The atom ID within the owning Compound.<code>number</code><em>= None</em>The atomic number for this atom.<code>x</code><em>= None</em>The x coordinate for this atom.<code>y</code><em>= None</em>The y coordinate for this atom.<code>z</code><em>= None</em>The z coordinate for this atom. Will be <code>None</code> in 2D Compound records.<code>charge</code><em>= None</em>The formal charge on this atom.<code>element</code>The element symbol for this atom.<code>to_dict</code>()Return a dictionary containing Atom data.<code>set_coordinates</code>(<em>x</em>, <em>y</em>, <em>z=None</em>)Set all coordinate dimensions at once.<code>coordinate_type</code>Whether this atom has 2D or 3D coordinates.</p>
+</li>
+</ul>
+<h2 id="bond">Bond</h2>
+<ul>
+<li>
+<p><em>class</em><code>pubchempy.``Bond</code>(<em>aid1</em>, <em>aid2</em>, <em>order=1</em>, <em>style=None</em>)</p>
+<p>Class to represent a bond between two atoms in a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a>.Initialize with begin and end atom IDs, bond order and bond style.Parameters:<strong>aid1</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Begin atom ID.<strong>aid2</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – End atom ID.<strong>order</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Bond order.<code>aid1</code><em>= None</em>ID of the begin atom of this bond.<code>aid2</code><em>= None</em>ID of the end atom of this bond.<code>order</code><em>= None</em>Bond order.<code>style</code><em>= None</em>Bond style annotation.<code>to_dict</code>()Return a dictionary containing Bond data.</p>
+</li>
+</ul>
+<h2 id="substance">Substance</h2>
+<ul>
+<li>
+<p><em>class</em><code>pubchempy.``Substance</code>(<em>record</em>)</p>
+<p>Corresponds to a single record from the PubChem Substance database.The PubChem Substance database contains all chemical records deposited in PubChem in their most raw form, before any significant processing is applied. As a result, it contains duplicates, mixtures, and some records that don’t make chemical sense. This means that Substance records contain fewer calculated properties, however they do have additional information about the original source that deposited the record.The PubChem Compound database is constructed from the Substance database using a standardization and deduplication process. Hence each Compound may be derived from a number of different Substances.<em>classmethod</em><code>from_sid</code>(<em>sid</em>)Retrieve the Substance record for the specified SID.Parameters:<strong>sid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Substance Identifier (SID).<code>record</code><em>= None</em>A dictionary containing the full Substance record that all other properties are obtained from.<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Substance data.If the properties parameter is not specified, everything except cids and aids is included. This is because the aids and cids properties each require an extra request to retrieve.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>to_series</code>(<em>properties=None</em>)Return a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series"><code>Series</code></a> containing Substance data.If the properties parameter is not specified, everything except cids and aids is included. This is because the aids and cids properties each require an extra request to retrieve.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>sid</code>The PubChem Substance Idenfitier (SID).<code>synonyms</code>A ranked list of all the names associated with this Substance.<code>source_name</code>The name of the PubChem depositor that was the source of this Substance.<code>source_id</code>Unique ID for this Substance within those from the same PubChem depositor source.<code>standardized_cid</code>The CID of the Compound that was produced when this Substance was standardized.May not exist if this Substance was not standardizable.<code>standardized_compound</code>Return the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> that was produced when this Substance was standardized.Requires an extra request. Result is cached.<code>deposited_compound</code>Return a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> produced from the unstandardized Substance record as deposited.The resulting <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> will not have a <code>cid</code> and will be missing most properties.<code>cids</code>A list of all CIDs for Compounds that were produced when this Substance was standardized.Requires an extra request. Result is cached.<code>aids</code>A list of all AIDs for Assays associated with this Substance.Requires an extra request. Result is cached.</p>
+</li>
+</ul>
+<h2 id="assay">Assay</h2>
+<ul>
+<li>
+<p><em>class</em><code>pubchempy.``Assay</code>(<em>record</em>)</p>
+<p><em>classmethod</em><code>from_aid</code>(<em>aid</em>)Retrieve the Assay record for the specified AID.Parameters:<strong>aid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Assay Identifier (AID).<code>record</code><em>= None</em>A dictionary containing the full Assay record that all other properties are obtained from.<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Assay data.If the properties parameter is not specified, everything is included.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>aid</code>The PubChem Substance Idenfitier (SID).<code>name</code>The short assay name, used for display purposes.<code>description</code>Description<code>project_category</code>A category to distinguish projects funded through MLSCN, MLPCN or from literature.Possible values include mlscn, mlpcn, mlscn-ap, mlpcn-ap, literature-extracted, literature-author, literature-publisher, rnaigi.<code>comments</code>Comments and additional information.<code>results</code>A list of dictionaries containing details of the results from this Assay.<code>target</code>A list of dictionaries containing details of the Assay targets.<code>revision</code>Revision identifier for textual description.<code>aid_version</code>Incremented when the original depositor updates the record.</p>
+</li>
+</ul>
+<h2 id="pandas-functions"><em>pandas</em> functions</h2>
+<p>Each of the search functions, <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_compounds"><code>get_compounds()</code></a>, <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_substances"><code>get_substances()</code></a> and <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_properties"><code>get_properties()</code></a> has an <code>as_dataframe</code> parameter. When set to <code>True</code>, these functions automatically extract properties from each result in the list into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that instead of the results themselves.</p>
+<p>If you already have a list of Compounds or Substances, the functions below allow a <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> to be constructed easily.</p>
+<ul>
+<li>
+<p><code>pubchempy.``compounds_to_frame</code>(<em>compounds</em>, <em>properties=None</em>)</p>
+<p>Construct a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> from a list of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> objects.Optionally specify a list of the desired <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> properties.</p>
+</li>
+<li>
+<p><code>pubchempy.``substances_to_frame</code>(<em>substances</em>, <em>properties=None</em>)</p>
+<p>Construct a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> from a list of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> objects.Optionally specify a list of the desired <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> properties.</p>
+</li>
+</ul>
+<h2 id="exceptions">Exceptions</h2>
+<ul>
+<li>
+<p><em>exception</em><code>pubchempy.``PubChemPyError</code></p>
+<p>Base class for all PubChemPy exceptions.</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``ResponseParseError</code></p>
+<p>PubChem response is uninterpretable.</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``PubChemHTTPError</code></p>
+<p>Generic error class to handle all HTTP error codes.</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``BadRequestError</code></p>
+<p>Request is improperly formed (syntax error in the URL, POST body, etc.).</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``NotFoundError</code></p>
+<p>The input record was not found (e.g. invalid CID).</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``MethodNotAllowedError</code></p>
+<p>Request not allowed (such as invalid MIME type in the HTTP Accept header).</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``TimeoutError</code></p>
+<p>The request timed out, from server overload or too broad a request.See <a href="https://pubchempy.readthedocs.io/en/latest/guide/advanced.html#avoiding-timeouterror">Avoiding TimeoutError</a> for more information.</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``UnimplementedError</code></p>
+<p>The requested operation has not (yet) been implemented by the server.</p>
+</li>
+<li>
+<p><em>exception</em><code>pubchempy.``ServerError</code></p>
+<p>Some problem on the server side (such as a database server down, etc.).</p>
+</li>
+</ul>
+<h2 id="changes">Changes</h2>
+<ul>
+<li>As of v1.0.3, the <code>atoms</code> and <code>bonds</code> properties on <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compounds</code></a> now return lists of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atom</code></a> and <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Bond"><code>Bond</code></a> objects, rather than dicts.</li>
+<li>As of v1.0.2, search functions now return an empty list instead of raising a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.NotFoundError"><code>NotFoundError</code></a> exception when no results are found. <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.NotFoundError"><code>NotFoundError</code></a> is still raised when attempting to create a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> using the <code>from_cid</code> class method with an invalid CID.</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Webdriver Notes]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/webdriver-notes/</id>
@@ -354,242 +474,6 @@ def test_Refresh(self):
 <p>用法与switch_to_frame 相同：</p>
 <p>driver.switch_to_window(&quot;windowName&quot;)</p>
 <p>无想法就无成就！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Pubchempy Notes]]></title>
-        <id>https://jiangtao639.github.io/jianglab/post/pubchempy-notes/</id>
-        <link href="https://jiangtao639.github.io/jianglab/post/pubchempy-notes/">
-        </link>
-        <updated>2020-05-10T05:49:45.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="api-documentation">API documentation</h1>
-<p>This part of the documentation is automatically generated from the PubChemPy source code and comments.</p>
-<h2 id="search-functions">Search functions</h2>
-<ul>
-<li>
-<p><code>pubchempy.``get_compounds</code>(<em>identifier</em>, <em>namespace=u'cid'</em>, <em>searchtype=None</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified compound records from PubChem.Parameters:<strong>identifier</strong> – The compound identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type, one of cid, name, smiles, sdf, inchi, inchikey or formula.<strong>searchtype</strong> – (optional) The advanced search type, one of substructure, superstructure or similarity.<strong>as_dataframe</strong> – (optional) Automatically extract the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that.</p>
-</li>
-<li>
-<p><code>pubchempy.``get_substances</code>(<em>identifier</em>, <em>namespace=u'sid'</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified substance records from PubChem.Parameters:<strong>identifier</strong> – The substance identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type, one of sid, name or sourceid/<source name>.<strong>as_dataframe</strong> – (optional) Automatically extract the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that.</p>
-</li>
-<li>
-<p><code>pubchempy.``get_assays</code>(<em>identifier</em>, <em>namespace=u'aid'</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified assay records from PubChem.Parameters:<strong>identifier</strong> – The assay identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type.</p>
-</li>
-<li>
-<p><code>pubchempy.``get_properties</code>(<em>properties</em>, <em>identifier</em>, <em>namespace=u'cid'</em>, <em>searchtype=None</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified properties from PubChem.Parameters:<strong>identifier</strong> – The compound, substance or assay identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type.<strong>searchtype</strong> – (optional) The advanced search type, one of substructure, superstructure or similarity.<strong>as_dataframe</strong> – (optional) Automatically extract the properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a>.</p>
-</li>
-</ul>
-<h2 id="compound">Compound</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Compound</code>(<em>record</em>)</p>
-<p>Corresponds to a single record from the PubChem Compound database.The PubChem Compound database is constructed from the Substance database using a standardization and deduplication process. Each Compound is uniquely identified by a CID.Initialize with a record dict from the PubChem PUG REST service.For most users, the <code>from_cid()</code> class method is probably a better way of creating Compounds.Parameters:<strong>record</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict"><em>dict</em></a>) – A compound record returned by the PubChem PUG REST service.<code>record</code>The raw compound record returned by the PubChem PUG REST service.<em>classmethod</em><code>from_cid</code>(<em>cid</em>, **<em>kwargs</em>)Retrieve the Compound record for the specified CID.Usage:<code>c = Compound.from_cid(6819)</code>Parameters:<strong>cid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Compound Identifier (CID).<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Compound data. Optionally specify a list of the desired properties.synonyms, aids and sids are not included unless explicitly specified using the properties parameter. This is because they each require an extra request.<code>to_series</code>(<em>properties=None</em>)Return a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series"><code>Series</code></a> containing Compound data. Optionally specify a list of the desired properties.synonyms, aids and sids are not included unless explicitly specified using the properties parameter. This is because they each require an extra request.<code>cid</code>The PubChem Compound Identifier (CID).NoteWhen searching using a SMILES or InChI query that is not present in the PubChem Compound database, an automatically generated record may be returned that contains properties that have been calculated on the fly. These records will not have a CID property.<code>elements</code>List of element symbols for atoms in this Compound.<code>atoms</code>List of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atoms</code></a> in this Compound.<code>bonds</code>List of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Bond"><code>Bonds</code></a> between <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atoms</code></a> in this Compound.<code>synonyms</code>A ranked list of all the names associated with this Compound.Requires an extra request. Result is cached.<code>sids</code>Requires an extra request. Result is cached.<code>aids</code>Requires an extra request. Result is cached.<code>charge</code>Formal charge on this Compound.<code>molecular_formula</code>Molecular formula.<code>molecular_weight</code>Molecular Weight.<code>canonical_smiles</code>Canonical SMILES, with no stereochemistry information.<code>isomeric_smiles</code>Isomeric SMILES.<code>inchi</code>InChI string.<code>inchikey</code>InChIKey.<code>iupac_name</code>Preferred IUPAC name.<code>xlogp</code>XLogP.<code>exact_mass</code>Exact mass.<code>monoisotopic_mass</code>Monoisotopic mass.<code>tpsa</code>Topological Polar Surface Area.<code>complexity</code>Complexity.<code>h_bond_donor_count</code>Hydrogen bond donor count.<code>h_bond_acceptor_count</code>Hydrogen bond acceptor count.<code>rotatable_bond_count</code>Rotatable bond count.<code>fingerprint</code>Raw padded and hex-encoded fingerprint, as returned by the PUG REST API.<code>cactvs_fingerprint</code>PubChem CACTVS fingerprint.Each bit in the fingerprint represents the presence or absence of one of 881 chemical substructures.More information at <a href="ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt">ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt</a><code>heavy_atom_count</code>Heavy atom count.<code>isotope_atom_count</code>Isotope atom count.<code>atom_stereo_count</code>Atom stereocenter count.<code>defined_atom_stereo_count</code>Defined atom stereocenter count.<code>undefined_atom_stereo_count</code>Undefined atom stereocenter count.<code>bond_stereo_count</code>Bond stereocenter count.<code>defined_bond_stereo_count</code>Defined bond stereocenter count.<code>undefined_bond_stereo_count</code>Undefined bond stereocenter count.<code>covalent_unit_count</code>Covalently-bonded unit count.</p>
-</li>
-</ul>
-<h2 id="atom">Atom</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Atom</code>(<em>aid</em>, <em>number</em>, <em>x=None</em>, <em>y=None</em>, <em>z=None</em>, <em>charge=0</em>)</p>
-<p>Class to represent an atom in a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a>.Initialize with an atom ID, atomic number, coordinates and optional change.Parameters:<strong>aid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Atom ID<strong>number</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Atomic number<strong>x</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – X coordinate.<strong>y</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – Y coordinate.<strong>z</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – (optional) Z coordinate.<strong>charge</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – (optional) Formal charge on atom.<code>aid</code><em>= None</em>The atom ID within the owning Compound.<code>number</code><em>= None</em>The atomic number for this atom.<code>x</code><em>= None</em>The x coordinate for this atom.<code>y</code><em>= None</em>The y coordinate for this atom.<code>z</code><em>= None</em>The z coordinate for this atom. Will be <code>None</code> in 2D Compound records.<code>charge</code><em>= None</em>The formal charge on this atom.<code>element</code>The element symbol for this atom.<code>to_dict</code>()Return a dictionary containing Atom data.<code>set_coordinates</code>(<em>x</em>, <em>y</em>, <em>z=None</em>)Set all coordinate dimensions at once.<code>coordinate_type</code>Whether this atom has 2D or 3D coordinates.</p>
-</li>
-</ul>
-<h2 id="bond">Bond</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Bond</code>(<em>aid1</em>, <em>aid2</em>, <em>order=1</em>, <em>style=None</em>)</p>
-<p>Class to represent a bond between two atoms in a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a>.Initialize with begin and end atom IDs, bond order and bond style.Parameters:<strong>aid1</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Begin atom ID.<strong>aid2</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – End atom ID.<strong>order</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Bond order.<code>aid1</code><em>= None</em>ID of the begin atom of this bond.<code>aid2</code><em>= None</em>ID of the end atom of this bond.<code>order</code><em>= None</em>Bond order.<code>style</code><em>= None</em>Bond style annotation.<code>to_dict</code>()Return a dictionary containing Bond data.</p>
-</li>
-</ul>
-<h2 id="substance">Substance</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Substance</code>(<em>record</em>)</p>
-<p>Corresponds to a single record from the PubChem Substance database.The PubChem Substance database contains all chemical records deposited in PubChem in their most raw form, before any significant processing is applied. As a result, it contains duplicates, mixtures, and some records that don’t make chemical sense. This means that Substance records contain fewer calculated properties, however they do have additional information about the original source that deposited the record.The PubChem Compound database is constructed from the Substance database using a standardization and deduplication process. Hence each Compound may be derived from a number of different Substances.<em>classmethod</em><code>from_sid</code>(<em>sid</em>)Retrieve the Substance record for the specified SID.Parameters:<strong>sid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Substance Identifier (SID).<code>record</code><em>= None</em>A dictionary containing the full Substance record that all other properties are obtained from.<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Substance data.If the properties parameter is not specified, everything except cids and aids is included. This is because the aids and cids properties each require an extra request to retrieve.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>to_series</code>(<em>properties=None</em>)Return a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series"><code>Series</code></a> containing Substance data.If the properties parameter is not specified, everything except cids and aids is included. This is because the aids and cids properties each require an extra request to retrieve.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>sid</code>The PubChem Substance Idenfitier (SID).<code>synonyms</code>A ranked list of all the names associated with this Substance.<code>source_name</code>The name of the PubChem depositor that was the source of this Substance.<code>source_id</code>Unique ID for this Substance within those from the same PubChem depositor source.<code>standardized_cid</code>The CID of the Compound that was produced when this Substance was standardized.May not exist if this Substance was not standardizable.<code>standardized_compound</code>Return the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> that was produced when this Substance was standardized.Requires an extra request. Result is cached.<code>deposited_compound</code>Return a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> produced from the unstandardized Substance record as deposited.The resulting <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> will not have a <code>cid</code> and will be missing most properties.<code>cids</code>A list of all CIDs for Compounds that were produced when this Substance was standardized.Requires an extra request. Result is cached.<code>aids</code>A list of all AIDs for Assays associated with this Substance.Requires an extra request. Result is cached.</p>
-</li>
-</ul>
-<h2 id="assay">Assay</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Assay</code>(<em>record</em>)</p>
-<p><em>classmethod</em><code>from_aid</code>(<em>aid</em>)Retrieve the Assay record for the specified AID.Parameters:<strong>aid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Assay Identifier (AID).<code>record</code><em>= None</em>A dictionary containing the full Assay record that all other properties are obtained from.<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Assay data.If the properties parameter is not specified, everything is included.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>aid</code>The PubChem Substance Idenfitier (SID).<code>name</code>The short assay name, used for display purposes.<code>description</code>Description<code>project_category</code>A category to distinguish projects funded through MLSCN, MLPCN or from literature.Possible values include mlscn, mlpcn, mlscn-ap, mlpcn-ap, literature-extracted, literature-author, literature-publisher, rnaigi.<code>comments</code>Comments and additional information.<code>results</code>A list of dictionaries containing details of the results from this Assay.<code>target</code>A list of dictionaries containing details of the Assay targets.<code>revision</code>Revision identifier for textual description.<code>aid_version</code>Incremented when the original depositor updates the record.</p>
-</li>
-</ul>
-<h2 id="pandas-functions"><em>pandas</em> functions</h2>
-<p>Each of the search functions, <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_compounds"><code>get_compounds()</code></a>, <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_substances"><code>get_substances()</code></a> and <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_properties"><code>get_properties()</code></a> has an <code>as_dataframe</code> parameter. When set to <code>True</code>, these functions automatically extract properties from each result in the list into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that instead of the results themselves.</p>
-<p>If you already have a list of Compounds or Substances, the functions below allow a <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> to be constructed easily.</p>
-<ul>
-<li>
-<p><code>pubchempy.``compounds_to_frame</code>(<em>compounds</em>, <em>properties=None</em>)</p>
-<p>Construct a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> from a list of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> objects.Optionally specify a list of the desired <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> properties.</p>
-</li>
-<li>
-<p><code>pubchempy.``substances_to_frame</code>(<em>substances</em>, <em>properties=None</em>)</p>
-<p>Construct a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> from a list of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> objects.Optionally specify a list of the desired <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> properties.</p>
-</li>
-</ul>
-<h2 id="exceptions">Exceptions</h2>
-<ul>
-<li>
-<p><em>exception</em><code>pubchempy.``PubChemPyError</code></p>
-<p>Base class for all PubChemPy exceptions.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``ResponseParseError</code></p>
-<p>PubChem response is uninterpretable.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``PubChemHTTPError</code></p>
-<p>Generic error class to handle all HTTP error codes.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``BadRequestError</code></p>
-<p>Request is improperly formed (syntax error in the URL, POST body, etc.).</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``NotFoundError</code></p>
-<p>The input record was not found (e.g. invalid CID).</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``MethodNotAllowedError</code></p>
-<p>Request not allowed (such as invalid MIME type in the HTTP Accept header).</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``TimeoutError</code></p>
-<p>The request timed out, from server overload or too broad a request.See <a href="https://pubchempy.readthedocs.io/en/latest/guide/advanced.html#avoiding-timeouterror">Avoiding TimeoutError</a> for more information.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``UnimplementedError</code></p>
-<p>The requested operation has not (yet) been implemented by the server.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``ServerError</code></p>
-<p>Some problem on the server side (such as a database server down, etc.).</p>
-</li>
-</ul>
-<h2 id="changes">Changes</h2>
-<ul>
-<li>As of v1.0.3, the <code>atoms</code> and <code>bonds</code> properties on <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compounds</code></a> now return lists of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atom</code></a> and <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Bond"><code>Bond</code></a> objects, rather than dicts.</li>
-<li>As of v1.0.2, search functions now return an empty list instead of raising a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.NotFoundError"><code>NotFoundError</code></a> exception when no results are found. <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.NotFoundError"><code>NotFoundError</code></a> is still raised when attempting to create a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> using the <code>from_cid</code> class method with an invalid CID.</li>
-</ul>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="api-documentation">API documentation</h1>
-<p>This part of the documentation is automatically generated from the PubChemPy source code and comments.</p>
-<h2 id="search-functions">Search functions</h2>
-<ul>
-<li>
-<p><code>pubchempy.``get_compounds</code>(<em>identifier</em>, <em>namespace=u'cid'</em>, <em>searchtype=None</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified compound records from PubChem.Parameters:<strong>identifier</strong> – The compound identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type, one of cid, name, smiles, sdf, inchi, inchikey or formula.<strong>searchtype</strong> – (optional) The advanced search type, one of substructure, superstructure or similarity.<strong>as_dataframe</strong> – (optional) Automatically extract the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that.</p>
-</li>
-<li>
-<p><code>pubchempy.``get_substances</code>(<em>identifier</em>, <em>namespace=u'sid'</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified substance records from PubChem.Parameters:<strong>identifier</strong> – The substance identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type, one of sid, name or sourceid/<source name>.<strong>as_dataframe</strong> – (optional) Automatically extract the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that.</p>
-</li>
-<li>
-<p><code>pubchempy.``get_assays</code>(<em>identifier</em>, <em>namespace=u'aid'</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified assay records from PubChem.Parameters:<strong>identifier</strong> – The assay identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type.</p>
-</li>
-<li>
-<p><code>pubchempy.``get_properties</code>(<em>properties</em>, <em>identifier</em>, <em>namespace=u'cid'</em>, <em>searchtype=None</em>, <em>as_dataframe=False</em>, **<em>kwargs</em>)</p>
-<p>Retrieve the specified properties from PubChem.Parameters:<strong>identifier</strong> – The compound, substance or assay identifier to use as a search query.<strong>namespace</strong> – (optional) The identifier type.<strong>searchtype</strong> – (optional) The advanced search type, one of substructure, superstructure or similarity.<strong>as_dataframe</strong> – (optional) Automatically extract the properties into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a>.</p>
-</li>
-</ul>
-<h2 id="compound">Compound</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Compound</code>(<em>record</em>)</p>
-<p>Corresponds to a single record from the PubChem Compound database.The PubChem Compound database is constructed from the Substance database using a standardization and deduplication process. Each Compound is uniquely identified by a CID.Initialize with a record dict from the PubChem PUG REST service.For most users, the <code>from_cid()</code> class method is probably a better way of creating Compounds.Parameters:<strong>record</strong> (<a href="https://docs.python.org/2/library/stdtypes.html#dict"><em>dict</em></a>) – A compound record returned by the PubChem PUG REST service.<code>record</code>The raw compound record returned by the PubChem PUG REST service.<em>classmethod</em><code>from_cid</code>(<em>cid</em>, **<em>kwargs</em>)Retrieve the Compound record for the specified CID.Usage:<code>c = Compound.from_cid(6819)</code>Parameters:<strong>cid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Compound Identifier (CID).<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Compound data. Optionally specify a list of the desired properties.synonyms, aids and sids are not included unless explicitly specified using the properties parameter. This is because they each require an extra request.<code>to_series</code>(<em>properties=None</em>)Return a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series"><code>Series</code></a> containing Compound data. Optionally specify a list of the desired properties.synonyms, aids and sids are not included unless explicitly specified using the properties parameter. This is because they each require an extra request.<code>cid</code>The PubChem Compound Identifier (CID).NoteWhen searching using a SMILES or InChI query that is not present in the PubChem Compound database, an automatically generated record may be returned that contains properties that have been calculated on the fly. These records will not have a CID property.<code>elements</code>List of element symbols for atoms in this Compound.<code>atoms</code>List of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atoms</code></a> in this Compound.<code>bonds</code>List of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Bond"><code>Bonds</code></a> between <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atoms</code></a> in this Compound.<code>synonyms</code>A ranked list of all the names associated with this Compound.Requires an extra request. Result is cached.<code>sids</code>Requires an extra request. Result is cached.<code>aids</code>Requires an extra request. Result is cached.<code>charge</code>Formal charge on this Compound.<code>molecular_formula</code>Molecular formula.<code>molecular_weight</code>Molecular Weight.<code>canonical_smiles</code>Canonical SMILES, with no stereochemistry information.<code>isomeric_smiles</code>Isomeric SMILES.<code>inchi</code>InChI string.<code>inchikey</code>InChIKey.<code>iupac_name</code>Preferred IUPAC name.<code>xlogp</code>XLogP.<code>exact_mass</code>Exact mass.<code>monoisotopic_mass</code>Monoisotopic mass.<code>tpsa</code>Topological Polar Surface Area.<code>complexity</code>Complexity.<code>h_bond_donor_count</code>Hydrogen bond donor count.<code>h_bond_acceptor_count</code>Hydrogen bond acceptor count.<code>rotatable_bond_count</code>Rotatable bond count.<code>fingerprint</code>Raw padded and hex-encoded fingerprint, as returned by the PUG REST API.<code>cactvs_fingerprint</code>PubChem CACTVS fingerprint.Each bit in the fingerprint represents the presence or absence of one of 881 chemical substructures.More information at <a href="ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt">ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt</a><code>heavy_atom_count</code>Heavy atom count.<code>isotope_atom_count</code>Isotope atom count.<code>atom_stereo_count</code>Atom stereocenter count.<code>defined_atom_stereo_count</code>Defined atom stereocenter count.<code>undefined_atom_stereo_count</code>Undefined atom stereocenter count.<code>bond_stereo_count</code>Bond stereocenter count.<code>defined_bond_stereo_count</code>Defined bond stereocenter count.<code>undefined_bond_stereo_count</code>Undefined bond stereocenter count.<code>covalent_unit_count</code>Covalently-bonded unit count.</p>
-</li>
-</ul>
-<h2 id="atom">Atom</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Atom</code>(<em>aid</em>, <em>number</em>, <em>x=None</em>, <em>y=None</em>, <em>z=None</em>, <em>charge=0</em>)</p>
-<p>Class to represent an atom in a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a>.Initialize with an atom ID, atomic number, coordinates and optional change.Parameters:<strong>aid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Atom ID<strong>number</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Atomic number<strong>x</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – X coordinate.<strong>y</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – Y coordinate.<strong>z</strong> (<a href="https://docs.python.org/2/library/functions.html#float"><em>float</em></a>) – (optional) Z coordinate.<strong>charge</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – (optional) Formal charge on atom.<code>aid</code><em>= None</em>The atom ID within the owning Compound.<code>number</code><em>= None</em>The atomic number for this atom.<code>x</code><em>= None</em>The x coordinate for this atom.<code>y</code><em>= None</em>The y coordinate for this atom.<code>z</code><em>= None</em>The z coordinate for this atom. Will be <code>None</code> in 2D Compound records.<code>charge</code><em>= None</em>The formal charge on this atom.<code>element</code>The element symbol for this atom.<code>to_dict</code>()Return a dictionary containing Atom data.<code>set_coordinates</code>(<em>x</em>, <em>y</em>, <em>z=None</em>)Set all coordinate dimensions at once.<code>coordinate_type</code>Whether this atom has 2D or 3D coordinates.</p>
-</li>
-</ul>
-<h2 id="bond">Bond</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Bond</code>(<em>aid1</em>, <em>aid2</em>, <em>order=1</em>, <em>style=None</em>)</p>
-<p>Class to represent a bond between two atoms in a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a>.Initialize with begin and end atom IDs, bond order and bond style.Parameters:<strong>aid1</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Begin atom ID.<strong>aid2</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – End atom ID.<strong>order</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – Bond order.<code>aid1</code><em>= None</em>ID of the begin atom of this bond.<code>aid2</code><em>= None</em>ID of the end atom of this bond.<code>order</code><em>= None</em>Bond order.<code>style</code><em>= None</em>Bond style annotation.<code>to_dict</code>()Return a dictionary containing Bond data.</p>
-</li>
-</ul>
-<h2 id="substance">Substance</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Substance</code>(<em>record</em>)</p>
-<p>Corresponds to a single record from the PubChem Substance database.The PubChem Substance database contains all chemical records deposited in PubChem in their most raw form, before any significant processing is applied. As a result, it contains duplicates, mixtures, and some records that don’t make chemical sense. This means that Substance records contain fewer calculated properties, however they do have additional information about the original source that deposited the record.The PubChem Compound database is constructed from the Substance database using a standardization and deduplication process. Hence each Compound may be derived from a number of different Substances.<em>classmethod</em><code>from_sid</code>(<em>sid</em>)Retrieve the Substance record for the specified SID.Parameters:<strong>sid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Substance Identifier (SID).<code>record</code><em>= None</em>A dictionary containing the full Substance record that all other properties are obtained from.<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Substance data.If the properties parameter is not specified, everything except cids and aids is included. This is because the aids and cids properties each require an extra request to retrieve.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>to_series</code>(<em>properties=None</em>)Return a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html#pandas.Series"><code>Series</code></a> containing Substance data.If the properties parameter is not specified, everything except cids and aids is included. This is because the aids and cids properties each require an extra request to retrieve.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>sid</code>The PubChem Substance Idenfitier (SID).<code>synonyms</code>A ranked list of all the names associated with this Substance.<code>source_name</code>The name of the PubChem depositor that was the source of this Substance.<code>source_id</code>Unique ID for this Substance within those from the same PubChem depositor source.<code>standardized_cid</code>The CID of the Compound that was produced when this Substance was standardized.May not exist if this Substance was not standardizable.<code>standardized_compound</code>Return the <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> that was produced when this Substance was standardized.Requires an extra request. Result is cached.<code>deposited_compound</code>Return a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> produced from the unstandardized Substance record as deposited.The resulting <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> will not have a <code>cid</code> and will be missing most properties.<code>cids</code>A list of all CIDs for Compounds that were produced when this Substance was standardized.Requires an extra request. Result is cached.<code>aids</code>A list of all AIDs for Assays associated with this Substance.Requires an extra request. Result is cached.</p>
-</li>
-</ul>
-<h2 id="assay">Assay</h2>
-<ul>
-<li>
-<p><em>class</em><code>pubchempy.``Assay</code>(<em>record</em>)</p>
-<p><em>classmethod</em><code>from_aid</code>(<em>aid</em>)Retrieve the Assay record for the specified AID.Parameters:<strong>aid</strong> (<a href="https://docs.python.org/2/library/functions.html#int"><em>int</em></a>) – The PubChem Assay Identifier (AID).<code>record</code><em>= None</em>A dictionary containing the full Assay record that all other properties are obtained from.<code>to_dict</code>(<em>properties=None</em>)Return a dictionary containing Assay data.If the properties parameter is not specified, everything is included.Parameters:<strong>properties</strong> – (optional) A list of the desired properties.<code>aid</code>The PubChem Substance Idenfitier (SID).<code>name</code>The short assay name, used for display purposes.<code>description</code>Description<code>project_category</code>A category to distinguish projects funded through MLSCN, MLPCN or from literature.Possible values include mlscn, mlpcn, mlscn-ap, mlpcn-ap, literature-extracted, literature-author, literature-publisher, rnaigi.<code>comments</code>Comments and additional information.<code>results</code>A list of dictionaries containing details of the results from this Assay.<code>target</code>A list of dictionaries containing details of the Assay targets.<code>revision</code>Revision identifier for textual description.<code>aid_version</code>Incremented when the original depositor updates the record.</p>
-</li>
-</ul>
-<h2 id="pandas-functions"><em>pandas</em> functions</h2>
-<p>Each of the search functions, <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_compounds"><code>get_compounds()</code></a>, <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_substances"><code>get_substances()</code></a> and <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.get_properties"><code>get_properties()</code></a> has an <code>as_dataframe</code> parameter. When set to <code>True</code>, these functions automatically extract properties from each result in the list into a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> and return that instead of the results themselves.</p>
-<p>If you already have a list of Compounds or Substances, the functions below allow a <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> to be constructed easily.</p>
-<ul>
-<li>
-<p><code>pubchempy.``compounds_to_frame</code>(<em>compounds</em>, <em>properties=None</em>)</p>
-<p>Construct a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> from a list of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> objects.Optionally specify a list of the desired <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> properties.</p>
-</li>
-<li>
-<p><code>pubchempy.``substances_to_frame</code>(<em>substances</em>, <em>properties=None</em>)</p>
-<p>Construct a pandas <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html#pandas.DataFrame"><code>DataFrame</code></a> from a list of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> objects.Optionally specify a list of the desired <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Substance"><code>Substance</code></a> properties.</p>
-</li>
-</ul>
-<h2 id="exceptions">Exceptions</h2>
-<ul>
-<li>
-<p><em>exception</em><code>pubchempy.``PubChemPyError</code></p>
-<p>Base class for all PubChemPy exceptions.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``ResponseParseError</code></p>
-<p>PubChem response is uninterpretable.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``PubChemHTTPError</code></p>
-<p>Generic error class to handle all HTTP error codes.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``BadRequestError</code></p>
-<p>Request is improperly formed (syntax error in the URL, POST body, etc.).</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``NotFoundError</code></p>
-<p>The input record was not found (e.g. invalid CID).</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``MethodNotAllowedError</code></p>
-<p>Request not allowed (such as invalid MIME type in the HTTP Accept header).</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``TimeoutError</code></p>
-<p>The request timed out, from server overload or too broad a request.See <a href="https://pubchempy.readthedocs.io/en/latest/guide/advanced.html#avoiding-timeouterror">Avoiding TimeoutError</a> for more information.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``UnimplementedError</code></p>
-<p>The requested operation has not (yet) been implemented by the server.</p>
-</li>
-<li>
-<p><em>exception</em><code>pubchempy.``ServerError</code></p>
-<p>Some problem on the server side (such as a database server down, etc.).</p>
-</li>
-</ul>
-<h2 id="changes">Changes</h2>
-<ul>
-<li>As of v1.0.3, the <code>atoms</code> and <code>bonds</code> properties on <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compounds</code></a> now return lists of <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Atom"><code>Atom</code></a> and <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Bond"><code>Bond</code></a> objects, rather than dicts.</li>
-<li>As of v1.0.2, search functions now return an empty list instead of raising a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.NotFoundError"><code>NotFoundError</code></a> exception when no results are found. <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.NotFoundError"><code>NotFoundError</code></a> is still raised when attempting to create a <a href="https://pubchempy.readthedocs.io/en/latest/api.html#pubchempy.Compound"><code>Compound</code></a> using the <code>from_cid</code> class method with an invalid CID.</li>
-</ul>
-<!-- more -->
 ]]></content>
     </entry>
     <entry>
