@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-05-14T12:57:12.071Z</updated>
+    <updated>2020-05-14T13:56:33.485Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,40 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[PHP notes]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/php-notes/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/php-notes/">
+        </link>
+        <updated>2020-05-14T13:55:50.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="安装php-与apacheyum-install-php">安装php 与Apache<br>
+yum install php</h1>
+<p>Apache测试：<br>
+service httpd start<br>
+没有办法确定服务器的FQDN？ 需要修改Apache的配置文件（/etc/httpd/conf/httpd.conf）<br>
+find / -name httpd.conf<br>
+#vim /etc/httpd/conf/httpd.conf    搜索/ServerName<br>
+去除第三个的servicename 前的“#”，保存并退出。重启Apache</p>
+<p>测试访问ip：192.168.181.128，没问题</p>
+<p>PHP测试是否可以运行{Apache站点目录：/var/www/html)?<br>
+#vim index.php</p>
+<?php
+phpinfo();
+?>
+<p>+++++++++++++++++++++++++<br>
+Mysql<br>
+anzhuang:<br>
+yum install mysql-server<br>
+-y<br>
+初始化：<br>
+service mysqld start<br>
+mysql_secure_installation<br>
+设置密码</p>
+<p>登录</p>
+<p>阿里云上的安全组放行<br>
+使用navicat登录</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mysql Notes]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/mysql-notes/</id>
@@ -960,16 +994,5 @@ beware – v. to be on guard; to take care of</p>
 <p>assassinate – v. to murder someone, often for political reasonsut a friend being disloyal to a friend in the world of politics. Often in politics, loyalty and friendship do not go hand-in-hand.</p>
 <p>Julius Caesar learned this the hard way on the Ides of March.</p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[时隔3月15天再次相见！]]></title>
-        <id>https://jiangtao639.github.io/jianglab/post/shi-ge-3-yue-15-tian-zai-ci-xiang-jian/</id>
-        <link href="https://jiangtao639.github.io/jianglab/post/shi-ge-3-yue-15-tian-zai-ci-xiang-jian/">
-        </link>
-        <updated>2020-05-05T04:54:45.000Z</updated>
-        <content type="html"><![CDATA[<p>开心o(<em>￣▽￣</em>)ブ</p>
-<video width="1000" height="750" controls>
-        <source src="https://f.video.weibocdn.com/1Mt6cB6Ylx07D0pQ2tYA01041200cubz0E010.mp4?label=mp4_720p&template=720x720.25.0&trans_finger=721584770189073627c6ee9d880087b3&Expires=1588657519&ssig=c6WeZqhsUb&KID=unistore,video" type="video/mp4">
-</video>]]></content>
     </entry>
 </feed>
