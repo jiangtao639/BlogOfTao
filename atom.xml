@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-05-15T14:17:52.012Z</updated>
+    <updated>2020-05-16T04:03:32.658Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,62 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[PHP连接mysql]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/php-lian-jie-mysql/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/php-lian-jie-mysql/">
+        </link>
+        <updated>2020-05-16T04:02:17.000Z</updated>
+        <content type="html"><![CDATA[<p>Pre:</p>
+<p>#yum install php-mysqli</p>
+<p>die()</p>
+<p>#输出一条消息并退出该脚本。</p>
+<h2 id="连接-mysql">连接 MySQL</h2>
+<p>在我们访问 MySQL 数据库前，我们需要先连接到数据库服务器：</p>
+<h2 id="实例-mysqli-面向对象">实例 (MySQLi - 面向对象)</h2>
+<pre><code class="language-php">&lt;?php 
+$servername = &quot;localhost&quot;; 
+$username = &quot;username&quot;;
+$password = &quot;password&quot;;  
+// 创建连接 $conn = new mysqli($servername, $username, $password);  
+// 检测连接 if ($conn-&gt;connect_error) {    
+	die(&quot;连接失败: &quot; . $conn-&gt;connect_error); 
+}  
+echo &quot;连接成功&quot;; 
+?&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><img src="https://www.runoob.com/images/lamp.jpg" alt="Note" loading="lazy">注意在以上面向对象的实例中 $connect_error 是在 PHP 5.2.9 和 5.3.0 中添加的。如果你需要兼容更早版本 请使用以下代码替换:  // 检测连接 if (mysqli_connect_error()) {   die(&quot;数据库连接失败: &quot; . mysqli_connect_error()); }</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="实例-mysqli-面向过程">实例 (MySQLi - 面向过程)</h2>
+<pre><code class="language-php">&lt;?php 
+$servername = &quot;localhost&quot;; 
+$username = &quot;username&quot;; 
+$password = &quot;password&quot;;  
+// 创建连接 $conn = mysqli_connect($servername, $username, $password);  
+// 检测连接 if (!$conn) {    
+	die(&quot;Connection failed: &quot; . mysqli_connect_error()); 
+} 
+echo &quot;连接成功&quot;; 
+?&gt;
+</code></pre>
+<h2 id="关闭连接">关闭连接</h2>
+<p>连接在脚本执行完后会自动关闭。你也可以使用以下代码来关闭连接：</p>
+<h2 id="实例-mysqli-面向对象-2">实例 (MySQLi - 面向对象)</h2>
+<p>$conn-&gt;close();</p>
+<h2 id="实例-mysqli-面向过程-2">实例 (MySQLi - 面向过程)</h2>
+<p>mysqli_close($conn);</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PHP function AND class]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/php-function-and-class/</id>
@@ -962,54 +1018,6 @@ cond(no)-&gt;sub1(right)-&gt;op
 </li>
 </ol>
 </section>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[每天进步一点点20200506]]></title>
-        <id>https://jiangtao639.github.io/jianglab/post/mei-tian-jin-bu-yi-dian-dian-20200506/</id>
-        <link href="https://jiangtao639.github.io/jianglab/post/mei-tian-jin-bu-yi-dian-dian-20200506/">
-        </link>
-        <updated>2020-05-06T10:14:42.000Z</updated>
-        <summary type="html"><![CDATA[<p>每日一句<br>
-Don't cry when the sun is gone, because the tears won't let you see the stars.</p>
-<figure data-type="image" tabindex="1"><img src="https://jiangtao639.github.io/jianglab//post-images/1588760257902.jpg" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<p>每日一句<br>
-Don't cry when the sun is gone, because the tears won't let you see the stars.</p>
-<figure data-type="image" tabindex="1"><img src="https://jiangtao639.github.io/jianglab//post-images/1588760257902.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<p>我的翻译：<br>
-three months later<br>
-Today an avenging crime was happened in Royal Oaks<br>
-the local homosexual   Jonasen.Lisco<br>
-do a part-time job as female impersonator<br>
-attacked at home<br>
-Lisco suspect<br>
-This attack is due to<br>
-his efforts to secure homosexual partner insurance coverage from his employer,Cliffside cable<br>
-Police are circulating the sketch of the assailant<br>
-the circumstances speak for themselves<br>
-i've taken a strong stance with my company<br>
-Is there anything you want to ask me?<br>
-NO<br>
-<img src="https://jiangtao639.github.io/jianglab//post-images/1588762150206.jpg" alt="" loading="lazy"></p>
-<!-- more -->
-<p>翻译：<br>
-你也许属于Hufflepuff<br>
-在那里他们是公平的和忠诚的<br>
-那些耐心的Hff 是真实的<br>
-并且不害怕辛苦，<br>
-如果你头脑精明<br>
-或者进old Ravenclaw<br>
-那里那些有智慧和学士的人<br>
-总会找到他们的知己<br>
-或者或许在Slytherin<br>
-你会教到你的真朋友，<br>
-那些狡猾的人民不择手段达到他们的目的<br>
-所以带上我，不要害怕<br>
-不要惊慌失措<br>
-你很安全（虽然我啥也没有）<br>
-因为我是一个会思考的帽子</p>
 ]]></content>
     </entry>
 </feed>
