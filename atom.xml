@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jiangtao639.github.io/jianglab/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2020-05-16T04:03:32.658Z</updated>
+    <updated>2020-05-16T08:49:10.644Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jiangtao639.github.io/jianglab/"/>
     <link rel="self" href="https://jiangtao639.github.io/jianglab/atom.xml"/>
@@ -10,6 +10,72 @@
     <logo>https://jiangtao639.github.io/jianglab/images/avatar.png</logo>
     <icon>https://jiangtao639.github.io/jianglab/favicon.ico</icon>
     <rights>All rights reserved 2020, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[PHP操作数据库]]></title>
+        <id>https://jiangtao639.github.io/jianglab/post/php-cao-zuo-shu-ju-ku/</id>
+        <link href="https://jiangtao639.github.io/jianglab/post/php-cao-zuo-shu-ju-ku/">
+        </link>
+        <updated>2020-05-16T08:46:34.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="php操作数据库">PHP操作数据库</h1>
+<p>service mysqld start</p>
+<p>/连接</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>o</mi><mi>n</mi><mi>n</mi><mo>=</mo><mi>n</mi><mi>e</mi><mi>w</mi><mi>m</mi><mi>y</mi><mi>s</mi><mi>q</mi><mi>l</mi><mi>i</mi><mo>(</mo></mrow><annotation encoding="application/x-tex">conn = new mysqli(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mopen">(</span></span></span></span>servername, $username, $password);</p>
+<p>/创建数据库</p>
+<p>$sql =&quot;CREATE DATABASE dbname&quot;;</p>
+<p>/创建表</p>
+<p>$sql = &quot;CREATE TABLE MyGuests (</p>
+<p>id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,</p>
+<p>firstname VARCHAR(30) NOT NULL,</p>
+<p>lastname VARCHAR(30) NOT NULL,</p>
+<p>email VARCHAR(50),</p>
+<p>reg_date TIMESTAMP</p>
+<p>)&quot;;</p>
+<p>/插入数据</p>
+<p>$sql = &quot;INSERT INTO MyGuests (firstname, lastname, email)</p>
+<p>VALUES ('Jiang', 'Tao',  'jiangtao639@163.com')&quot;;</p>
+<p>/检查</p>
+<p>if (mysqli_query($conn, <span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;}&#039;, got &#039;EOF&#039; at end of input: …. mysqli_error('>sql))
+{
+        echo &quot;数据插入成功。&lt;br&gt;&quot;;
+}
+else
+{
+        echo &quot;Failed:&quot; . mysqli_error(</span>conn);<br>
+}<br>
+/插入多行<br>
+$sql = &quot;INSERT INTO MyGuests (firstname, lastname, email)</p>
+<p>VALUES ('Jiang', 'Tao',  'jiangtao639@163.com')&quot;;<br>
+$sql .= &quot;INSERT INTO MyGuests (firstname, lastname, email)</p>
+<p>VALUES ('Jiang', 'Tao',  'jiangtao639@163.com')&quot;;<br>
+$sql .= &quot;INSERT INTO MyGuests (firstname, lastname, email)</p>
+<p>VALUES ('Jiang', 'Tao',  'jiangtao639@163.com')&quot;;<br>
+/预处理<br>
+#初始化对象 stmt<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>t</mi><mi>m</mi><mi>t</mi><mo>=</mo><mi>m</mi><mi>y</mi><mi>s</mi><mi>q</mi><mi>l</mi><msub><mi>i</mi><mi>s</mi></msub><mi>t</mi><mi>m</mi><msub><mi>t</mi><mi>i</mi></msub><mi>n</mi><mi>i</mi><mi>t</mi><mo>(</mo></mrow><annotation encoding="application/x-tex">stmt = mysqli_stmt_init(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">m</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">t</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span></span></span></span>conn);<br>
+#预处理语句<br>
+if (mysqli_stmt_prepare($stmt, <span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;}&#039;, got &#039;EOF&#039; at end of input: …tmt_bind_param('>sql))
+{
+    /bind paramtrs
+    /i - 整数 d - 双精度浮点数 s - 字符串 b - 布尔值 &#039;sss&#039;
+    mysqli_stmt_bind_param(</span>stmt, 'sss', $firstname, $lastname, $email);<br>
+/设置参数并执行<br>
+$firstname = 'John';<br>
+$lastname = 'Doe';<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>m</mi><mi>a</mi><mi>i</mi><mi>l</mi><msup><mo>=</mo><mo mathvariant="normal">′</mo></msup><mi>j</mi><mi>o</mi><mi>h</mi><mi>n</mi><mi mathvariant="normal">@</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><msup><mi>m</mi><mo mathvariant="normal">′</mo></msup><mo separator="true">;</mo><mi>m</mi><mi>y</mi><mi>s</mi><mi>q</mi><mi>l</mi><msub><mi>i</mi><mi>s</mi></msub><mi>t</mi><mi>m</mi><msub><mi>t</mi><mi>e</mi></msub><mi>x</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>t</mi><mi>e</mi><mo>(</mo></mrow><annotation encoding="application/x-tex">email = &#x27;john@example.com&#x27;;
+    mysqli_stmt_execute(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mord mathdefault">o</span><span class="mord mathdefault">h</span><span class="mord mathdefault">n</span><span class="mord">@</span><span class="mord mathdefault">e</span><span class="mord mathdefault">x</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord">.</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">t</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">u</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mopen">(</span></span></span></span>stmt);</p>
+<pre><code>$firstname = 'Mary';
+$lastname = 'Moe';
+$email = 'mary@example.com';
+mysqli_stmt_execute($stmt);
+
+$firstname = 'Julie';
+$lastname = 'Dooley';
+$email = 'julie@example.com';
+mysqli_stmt_execute($stmt);
+</code></pre>
+<p>}</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PHP连接mysql]]></title>
         <id>https://jiangtao639.github.io/jianglab/post/php-lian-jie-mysql/</id>
@@ -847,177 +913,6 @@ we could be good friends as before/like  once we've always had
 这时麦格教授朝前走了几步，手里拿着一卷羊皮纸。
 “我现在叫到谁的名字，谁就戴上帽子，坐到凳子上，昕候分院。”她说，“汉娜艾博!”
 　一个面色红润、梳着两条金色发辫的小姑娘，跌跌撞撞地走出队列，戴上帽子，帽子刚好遮住她的限睛。她坐了下来。片刻停顿——“赫奇帕奇!”帽子喊道。
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Markdown exercise!]]></title>
-        <id>https://jiangtao639.github.io/jianglab/post/markdown-exercise/</id>
-        <link href="https://jiangtao639.github.io/jianglab/post/markdown-exercise/">
-        </link>
-        <updated>2020-05-07T07:07:56.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="微软个人">微软个人</h1>
-<h2 id="埃尔嘎嘎">埃尔嘎嘎</h2>
-<p>adfef<br>
-sgdht<br>
-<em>qdw</em><br>
-<strong>sdwwf</strong><br>
-<em><strong>wsdff</strong></em></p>
-<hr>
-<p><s>wrwewewt</s><br>
-~~rwtyy5t5··<br>
-<u>，zlj</u><br>
-<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<ul>
-<li>wqrqr</li>
-<li>qweer</li>
-<li>efrggr
-<ul>
-<li>fgrgtgg
-<ul>
-<li>fgegthh
-<ul>
-<li>dfg;grg</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>fwgg</li>
-</ul>
-<ol>
-<li>
-<p>efrhth</p>
-</li>
-<li>
-<p>erwggh</p>
-</li>
-<li>
-<p>efgh</p>
-<blockquote>
-<p>dsgr</p>
-<blockquote>
-<p>efg</p>
-<blockquote>
-<p>sdf</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p>QUKAUI</p>
-<ol>
-<li>的老师</li>
-<li>dfsg</li>
-<li></li>
-</ol>
-<ul>
-<li>fg</li>
-</ul>
-</blockquote>
-<ul>
-<li>
-<p>edf'g<br>
-<code>printf()</code>函数</p>
-<pre><code class="language-python">echo 'akfalefm'
-function test() {
-echo 'test'
-}
-</code></pre>
-<pre><code></code></pre>
-<pre><code>
-```
-
-l链接[baidu](http://www.baidu.com)
-
-```link
-
-```
-
-&lt;http://www.baidu.com&gt;
-
-![alt wef](C:\Users\TAOjay\Desktop\images\Harry potter.jpg)
-
-</code></pre>
-</li>
-</ul>
-<p><kbd>defwff</kbd></p>
-<pre><code class="language-mermaid">graph LR
-A[fangxin] --&gt;B(yuanjiao)
-	B --&gt;C{fdgg}
-	C --&gt;D
-	C --&gt;E
-	F[kfldfk]
-	
-</code></pre>
-<pre><code class="language-mermaid">graph TD
-A--&gt;b--&gt;C{FEFRE}--&gt;DF
-DF--&gt;G
-DF--&gt;H
-I(SHULADKL)
-</code></pre>
-<pre><code class="language-flow">st=&gt;start: 开始框
-op=&gt;operation: 处理框
-cond=&gt;condition: 判断框(是或否?)
-sub1=&gt;subroutine: 子流程
-io=&gt;inputoutput: 输入输出框
-e=&gt;end: 结束框
-st-&gt;op-&gt;cond
-cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op
-</code></pre>
-<pre><code class="language-flow">st=&gt;start: 开始框
-op=&gt;operation: 处理框
-cond=&gt;condition: 判断框(是或否?)
-sub1=&gt;subroutine: 子流程
-io=&gt;inputoutput: 输入输出框
-e=&gt;end: 结束框
-st(right)-&gt;op(right)-&gt;cond
-cond(yes)-&gt;io(bottom)-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op
-</code></pre>
-<pre><code class="language-mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
-  sequenceDiagram
-    participant 张三
-    participant 李四
-    张三-&gt;王五: 王五你好吗？
-    loop 健康检查
-        王五-&gt;王五: 与疾病战斗
-    end
-    Note right of 王五: 合理 食物 &lt;br/&gt;看医生...
-    李四--&gt;&gt;张三: 很好!
-    王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!
-</code></pre>
-<pre><code class="language-mermaid">     gantt
-        dateFormat  YYYY-MM-DD
-        title 软件开发甘特图
-        section 设计
-        需求                      :done,    des1, 2014-01-06,2014-01-08
-        原型                      :active,  des2, 2014-01-09, 3d
-        UI设计                     :         des3, after des2, 5d
-    未来任务                     :         des4, after des3, 5d
-        section 开发
-        学习准备理解需求                      :crit, done, 2014-01-06,24h
-        设计框架                             :crit, done, after des2, 2d
-        开发                                 :crit, active, 3d
-        未来任务                              :crit, 5d
-        耍                                   :2d
-        section 测试
-        功能测试                              :active, a1, after des3, 3d
-        压力测试                               :after a1  , 20h
-        测试报告                               : 48h
-</code></pre>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>awdfefefegeggeefef!! <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 ]]></content>
     </entry>
 </feed>
