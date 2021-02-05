@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://jiangtao639.github.io/BlogOfTao/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2021-02-05T07:33:33.310Z</updated>
+    <updated>2021-02-05T07:59:24.791Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://jiangtao639.github.io/BlogOfTao/"/>
     <link rel="self" href="http://jiangtao639.github.io/BlogOfTao/atom.xml"/>
@@ -10,6 +10,332 @@
     <logo>http://jiangtao639.github.io/BlogOfTao/images/avatar.png</logo>
     <icon>http://jiangtao639.github.io/BlogOfTao/favicon.ico</icon>
     <rights>All rights reserved 2021, TAOJay &amp; Eating&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[python爬虫]]></title>
+        <id>http://jiangtao639.github.io/BlogOfTao/post/go-home-tonight/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/go-home-tonight/">
+        </link>
+        <updated>2021-02-05T07:43:10.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="需要导入的包">需要导入的包</h2>
+<pre><code>from bs4 import BeautifulSoup #处理html
+import re  #正则表达式
+import urllib.request, urllib.error #指定url,获取网页数据
+import xlwt #进行excel操作
+import sqlite3 #进行SQLite数据库操作
+</code></pre>
+<h2 id="beautiful-soup">beautiful soup</h2>
+<pre><code>beautiful soup是将html文档转换成一个复杂的树形结构，每个节点都是python对象，所有对象可以归纳为四种：
+- Tag   标签及其内容：默认拿到第一个标签  bs.title
+- NavigableString   标签里的内容  bs.title.string   bs.a.attrs
+- BeautifulSoup    表示整个文档  bs
+- Comment         是一种特殊的NavigableString 会自动排除掉注释符号 &lt;--news--&gt;
+
+# 文档的遍历
+bs.head.contents[index]
+详见bs4文档
+# 文档的搜索
+(1) bs.find_all(&quot;Tag_Name&quot;)  查找所有的某个标签，返回一个列表
+
+# 1.正则表达式搜索
+使用search()来匹配
+# 2.自定义函数搜索  查找含有name属性的所有tag
+def name_is_exists(tag):
+    return tag.has_attr(&quot;name&quot;)
+
+bs.find_all(name_is_exists)
+# 3.kwargs
+bs.find_all(id=&quot;head&quot;)
+bs.find_all(class_=True)
+# 4.text参数
+bs.find_all(text = [&quot;hao123&quot;,&quot;地图&quot;])
+# 5.limit参数
+bs.find_all(&quot;Tag_Name&quot;，limit=3)
+# 6.CSS选择器
+bs.select(&quot;tag&quot;
+/.class
+/#id
+/tag[class='hah']
+/&quot;head &gt; title&quot;
+/&quot;.a ~ .b&quot; #a，b为兄弟标签
+)  返回一个列表[i].get_text()
+</code></pre>
+<h2 id="正则表达式">正则表达式</h2>
+<pre><code>.   表示任何单个字符
+[]  字符集，对单个字符串给出取值范围 [a-z]
+[^ ]    非字符  [^abc]
+*   0个或者多个
++   1个或多个
+?   0次或1次
+|   左右表达式的任意一个 abc|def
+******************************************************
+{m} 扩展前一个字符m次
+{m,n}   扩展前一个字符m至n次
+^   匹配开头
+$   匹配结尾
+()  分组标记，内部只能用|操作符
+\d  数字，等价于[0-9]
+\w  单个字符，等价于[A-Za-z0-9_]
+\s 匹配任何空白非打印字符，包括空格、制表符、换页符等。等价于 [ \f\n\r\t\v]。注意Unicode正则表达式会匹配全角空格符。
+\S 匹配任何非空白非打印字符。等价于 [^ \f\n\r\t\v]。
+******************************************************
+re库的主要功能函数
+re.search()  在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象
+re.match()  在一个字符串的开始位置起匹配正则表达式，返回match对象
+re.findall()    搜索字符串，以列表类型返回全部能匹配的字符串
+re.split()  将一个字符串按照正则表达式匹配结果进行分割，返回列表类型
+re.finditer()   搜索字符串，返回一个匹配结果的迭代类型，每个迭代的元素是match对象
+re.sub()    在一个字符串中替换所有匹配正则表达式的字串，返回替换后的字符串
+******************************************************************
+正则表达式的模式&lt;通过可选的标志修饰符来控制&gt;
+re.I        使匹配对大小写不敏感
+re.L        做本地化识别匹配
+re.M        多行匹配，影响^和$
+re.S        使.匹配包括换行在内的所有字符
+re.U        根据Unicode字符集来解析字符，影响\w,\W,\b,\B
+re.X        给予灵活的格式使RE更易于理解
+</code></pre>
+<h2 id="urllib">urllib</h2>
+<pre><code>url = &quot;https://www.douban.com&quot;
+headers = {
+    &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&quot;
+}
+# form
+data = bytes(ps.urlencode({
+    &quot;start&quot;:&quot;2&quot;
+}),encoding=&quot;utf-8&quot;)
+request = req.Request(url=url,
+                      data=data,
+                      headers=headers,
+                      method=&quot;POST&quot;)
+response = req.urlopen(request)
+print(response.read().decode(&quot;utf-8&quot;))
+</code></pre>
+<h2 id="xlwt">xlwt</h2>
+<pre><code>workbook = xlwt.Workbook(encoding=&quot;utf-8&quot;)  #创建workbook
+worksheet = workbook.add_sheet(&quot;sheet1&quot;)    #创建sheet
+worksheet.write(0,0,'hello')   #写入数据(row,col,data)
+workbook.save('student.xls')   #保存数据
+</code></pre>
+<h2 id="sqlite3">sqlite3</h2>
+<pre><code>#打开或创建数据库文件
+conn = sqlite3.connect(&quot;test.db&quot;)
+print(&quot;open database successfully&quot;)
+#获取游标
+c = conn.cursor()
+
+#建表
+&quot;&quot;&quot;
+sql ='''
+    create table company
+        (id int primary key not null,
+        name text not null,
+        age int not null,
+        address char(50),
+        salary real);
+'''
+c.execute(sql)
+#提交数据库操作
+conn.commit()
+#关闭数据库连接
+conn.close()
+print(&quot;creat table successfully&quot;)
+&quot;&quot;&quot;
+
+#插入数据
+&quot;&quot;&quot;
+sql ='''
+    insert into company (id,name,age,address,salary)
+        values (1,'jiata',18,'ajfksfhkj',888888)
+'''
+c.execute(sql)
+#提交数据库操作
+conn.commit()
+#关闭数据库连接
+conn.close()
+print(&quot;insert successfully&quot;)
+&quot;&quot;&quot;
+
+#查询
+sql ='''
+    select * from company
+'''
+c.execute(sql)
+for row in c:
+    print(&quot;id = &quot;,row[0])
+    print(&quot;name = &quot;,row[1])
+    print(&quot;address = &quot;,row[2])
+    print(&quot;salary = &quot;,row[3],&quot;\n&quot;)
+
+#关闭数据库连接
+conn.close()
+print(&quot;query successfully&quot;)
+</code></pre>
+<h2 id="example">example</h2>
+<h3 id="爬取豆瓣top250并存入sqlite数据库">爬取豆瓣top250并存入sqlite数据库</h3>
+<pre><code>from bs4 import BeautifulSoup
+import re  #正则表达式
+import urllib.request, urllib.error #指定url,获取网页数据
+import xlwt #进行excel操作
+import sqlite3 #进行SQLite数据库操作
+
+
+
+
+def main():
+    baseurl = &quot;https://movie.douban.com/top250?start=&quot;
+    #1.爬取网页
+    #2.解析数据
+    datalist = getData(baseurl)
+    #3.保存数据
+    # path = &quot;.\\douBanMovieTop250.xls&quot;
+    db_path = &quot;movie.db&quot;
+    savaData2DB(datalist,db_path)
+
+# #创建正则模式对象
+# 表达式 .* 就是单个字符匹配任意次，即贪婪匹配。
+# 表达式 .*? 是满足条件的情况只匹配一次，即最小匹配.
+findLink = re.compile(r'&lt;a href=&quot;(.*?)&quot;&gt;')  #r忽略所有特殊字符
+findImgSrc = re.compile(r'&lt;img.*src=&quot;(.*?)&quot;',re.S) #忽略换行符（让换行符包含在字符中）
+findTitle = re.compile(r'&lt;span class=&quot;title&quot;&gt;(.*)&lt;/span&gt;')
+findRating = re.compile(r'&lt;span class=&quot;rating_num&quot; property=&quot;v:average&quot;&gt;(.*)&lt;/span&gt;')
+findComments = re.compile(r'&lt;span&gt;(\d*)人评价&lt;/span&gt;')
+findInq = re.compile(r'&lt;span class=&quot;inq&quot;&gt;(.*)&lt;/span&gt;')
+findBd = re.compile(r'&lt;p class=&quot;&quot;&gt;(.*?)&lt;/p&gt;',re.S)
+
+#爬取网页
+def getData(baseurl):
+    datalist = []
+    for i in range(0,10):
+        url = baseurl + str(i*25)
+        html = askURL(url)
+        # 2.逐一解析数据
+        soup = BeautifulSoup(html,&quot;html.parser&quot;)
+        for item in soup.find_all('div',class_=&quot;item&quot;): #查找符合要求的字符串返回列表
+            # print(item)
+            data=[] #保存一部电影的所有信息
+            item = str(item)
+            # 获取影片连接
+            link = re.findall(findLink,item)[0]
+            data.append(link)
+
+            img = re.findall(findImgSrc,item)[0]
+            data.append(img)
+
+            titles = re.findall(findTitle,item)
+            if len(titles) == 2:
+                ctitle = titles[0]
+                data.append(ctitle)
+                otitle = titles[1].replace(&quot; / &quot;, &quot;&quot;)
+                data.append(otitle)
+            else:
+                data.append(titles[0])
+                data.append(' ')
+
+            rate = re.findall(findRating,item)[0]
+            data.append(rate)
+
+            comments = re.findall(findComments,item)[0]
+            data.append(comments)
+
+            inq = re.findall(findInq,item)
+            if len(inq) != 0:
+                inq = inq[0].replace(&quot;。&quot;,&quot;&quot;)
+                data.append(inq)
+            else:
+                data.append(' ')
+
+            bd = re.findall(findBd,item)[0]
+            bd = re.sub('&lt;br(\s+)?/&gt;(\s+)?',&quot; &quot;,bd)
+            bd = re.sub('/',&quot; &quot;,bd)
+            data.append(bd.strip())   #去掉字符串前后的空格
+
+            datalist.append(data)
+
+    return datalist
+
+#获得指定url的网页内容
+def askURL(url):
+
+    #模拟浏览器头部信息，向浏览器发送消息
+    headers = {
+        #用户代理 告诉豆瓣服务器我们是什么类型的机器（浏览器），（本质上可以接受什么样的文件内容）
+       &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36&quot;
+    }
+    #封装请求的request对象
+    request = urllib.request.Request(url,headers=headers)
+    html = &quot;&quot;
+    try:
+        response = urllib.request.urlopen(request)
+        html = response.read().decode(&quot;utf-8&quot;)
+        # print(html)
+    except urllib.error.URLError as e:
+        if hasattr(e,&quot;code&quot;):
+            print(e.code)
+        if hasattr(e,&quot;reason&quot;):
+            print(e.reason)
+    return html
+
+#保存数据
+def savaData(datalist,path):
+    book = xlwt.Workbook(encoding=&quot;utf-8&quot;,style_compression=0)  # 创建workbook
+    sheet = book.add_sheet(&quot;douBanTop250&quot;,cell_overwrite_ok=True)  # 创建sheet
+    col = ('电影详情链接','图片链接','影片中文名','影片外文名','评分','评价数','概况','相关信息')
+    for i in range(0,8):
+        sheet.write(0,i,col[i])
+
+    for i in range(0,250):
+        print(&quot;正在爬取第%d条记录&quot;%(i+1))
+        for j in range(0,8):
+            sheet.write(i+1,j,datalist[i][j])
+
+    book.save(path)  #保存数据
+
+def savaData2DB(datalist,db_path):
+    init_db(db_path)
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    for data in datalist:
+        for index in range(len(data)):
+            data[index] = '&quot;'+data[index]+'&quot;'
+        sql = '''
+            insert into movie250 (
+            info_link,pic_link,cname,ename,score,rating,introduction,info)
+            values(%s)'''%&quot;,&quot;.join(data)
+        cursor.execute(sql)
+        conn.commit()
+    cursor.close()
+    conn.close()
+
+
+
+def init_db(db_path):
+    sql= '''create table movie250
+            (
+            id integer primary key autoincrement,
+            info_link text,
+            pic_link text,
+            cname varchar,
+            ename varchar,
+            score numeric,
+            rating numeric,
+            introduction text,
+            info text)
+    ''' #create table
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
+
+
+if __name__ == &quot;__main__&quot;:  # 当程序执行时
+    # 调用函数
+    main()
+    print(&quot;爬取完毕！&quot;)
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PHP操作数据库]]></title>
         <id>http://jiangtao639.github.io/BlogOfTao/post/php-cao-zuo-shu-ju-ku/</id>
@@ -873,46 +1199,6 @@ These workers repair the roof of a house in the U.S. state of Virginia, June 201
 Let's say two people, Tara and Sam, own a business together. The company is called Tara &amp; Sam’s Roof Repair. They had been building their company for a few years and were finally starting to make a profit. Then one day, Tara sprang big news on Sam. She was moving to Alaska … in a week! She wanted out of the business.</p>
 <p>Sam was not prepared for any of this. A few weeks earlier, they had made plans for growing their client base. He asked, “A week? How can you spring this news on me? We are supposed to be partners! I’ve spent time away from my family to build this business!”</p>
 <p>Sam was shocked and angry. But then he saw an opportunity. He asked his son to join the company. They renamed it Sam &amp; Son’s Roof Repair and soon their business was doing even better than before. And they were able to spend more time together.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[每天进步一点点20200507]]></title>
-        <id>http://jiangtao639.github.io/BlogOfTao/post/mei-tian-jin-bu-yi-dian-dian-20200507/</id>
-        <link href="http://jiangtao639.github.io/BlogOfTao/post/mei-tian-jin-bu-yi-dian-dian-20200507/">
-        </link>
-        <updated>2020-05-07T08:30:05.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="每日一句">每日一句</h1>
-<p><b>The farther behind I leave the past, the closer I am to forging my own character.</b></p>
-<h2 id="绝望主妇-汉译英">绝望主妇 汉译英</h2>
-<figure data-type="image" tabindex="1"><img src="http://jiangtao639.github.io/BlogOfTao//post-images/1588840385952.jpg" alt="" loading="lazy"></figure>
-<h3 id="翻译">翻译:</h3>
-<p>
-you have stolen it,right?
-Good evening,Mrs Huber
-It's all my fault that didn't hide the cup safely
-If you're capable of arson,
-obviously you are capable of breaking and entering
-i don't know what you are talking about,Mrs HUber
-i guess you destroyed it
-Again, I don't know what you're talking about,
-But,Yeah I did
-I would keep the secret for you at the beginnig
-But  you don't trust me
-you really trouble a lot ,you know?
-Susan,let's not be unpleasant!
-we could be good friends as before/like  once we've always had 
-</p>
-## 哈利波特 英译汉
-![](http://jiangtao639.github.io/BlogOfTao//post-images/1588841700097.jpg)
-### 翻译
-<p>
-  当魔术帽唱完歌后，整个大厅里掌声雷动。帽子哥向四个桌子的人鞠躬后，然后陷入寂静再次。
-荣对哈利低语道，‘让我们试试那顶帽子吧
-我会杀了fred，他要去跟巨魔战斗’
-  哈利微微一笑。是的，带上这个帽子确实比念咒语强一百倍，但是他不想在众人面前尝试。看来这顶帽子的要求高了些。哈利觉得自己没有那份勇气和机灵劲儿或其他任何优点。如果帽子提出有一所专门让优柔寡断的人进的学-72 -院，那倒是对他最合适的地方。
-这时麦格教授朝前走了几步，手里拿着一卷羊皮纸。
-“我现在叫到谁的名字，谁就戴上帽子，坐到凳子上，昕候分院。”她说，“汉娜艾博!”
-　一个面色红润、梳着两条金色发辫的小姑娘，跌跌撞撞地走出队列，戴上帽子，帽子刚好遮住她的限睛。她坐了下来。片刻停顿——“赫奇帕奇!”帽子喊道。
 ]]></content>
     </entry>
 </feed>
