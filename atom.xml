@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://jiangtao639.github.io/blogoftao/</id>
+    <id>http://jiangtao639.github.io/BlogOfTao/</id>
     <title>TAOJay &amp; Eating&apos;s Blog</title>
-    <updated>2021-02-05T07:05:23.948Z</updated>
+    <updated>2021-02-05T07:25:03.788Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://jiangtao639.github.io/blogoftao/"/>
-    <link rel="self" href="https://jiangtao639.github.io/blogoftao/atom.xml"/>
+    <link rel="alternate" href="http://jiangtao639.github.io/BlogOfTao/"/>
+    <link rel="self" href="http://jiangtao639.github.io/BlogOfTao/atom.xml"/>
     <subtitle>为了更好的明天加油！</subtitle>
-    <logo>https://jiangtao639.github.io/blogoftao/images/avatar.png</logo>
-    <icon>https://jiangtao639.github.io/blogoftao/favicon.ico</icon>
+    <logo>http://jiangtao639.github.io/BlogOfTao/images/avatar.png</logo>
+    <icon>http://jiangtao639.github.io/BlogOfTao/favicon.ico</icon>
     <rights>All rights reserved 2021, TAOJay &amp; Eating&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[PHP操作数据库]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/php-cao-zuo-shu-ju-ku/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/php-cao-zuo-shu-ju-ku/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/php-cao-zuo-shu-ju-ku/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/php-cao-zuo-shu-ju-ku/">
         </link>
         <updated>2020-05-16T08:46:34.000Z</updated>
         <content type="html"><![CDATA[<h1 id="php操作数据库">PHP操作数据库</h1>
@@ -78,8 +78,8 @@ mysqli_stmt_execute($stmt);
     </entry>
     <entry>
         <title type="html"><![CDATA[PHP连接mysql]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/php-lian-jie-mysql/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/php-lian-jie-mysql/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/php-lian-jie-mysql/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/php-lian-jie-mysql/">
         </link>
         <updated>2020-05-16T04:02:17.000Z</updated>
         <content type="html"><![CDATA[<p>Pre:</p>
@@ -134,8 +134,8 @@ echo &quot;连接成功&quot;;
     </entry>
     <entry>
         <title type="html"><![CDATA[PHP function AND class]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/php-function-and-class/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/php-function-and-class/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/php-function-and-class/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/php-function-and-class/">
         </link>
         <updated>2020-05-15T14:14:16.000Z</updated>
         <content type="html"><![CDATA[<p>今天真的被气死了<br>
@@ -182,8 +182,8 @@ function functionName($1,$2,....)
     </entry>
     <entry>
         <title type="html"><![CDATA[PHP notes]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/php-notes/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/php-notes/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/php-notes/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/php-notes/">
         </link>
         <updated>2020-05-14T13:55:50.000Z</updated>
         <content type="html"><![CDATA[<h1 id="安装php-与apacheyum-install-php">安装php 与Apache<br>
@@ -216,8 +216,8 @@ mysql_secure_installation<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mysql Notes]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/mysql-notes/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/mysql-notes/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/mysql-notes/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/mysql-notes/">
         </link>
         <updated>2020-05-14T12:56:04.000Z</updated>
         <content type="html"><![CDATA[<p>Mysql 安装 /usr/local/src</p>
@@ -336,8 +336,8 @@ e.刷新权限表或者重启mysql<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[API documentation]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/api-documentation/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/api-documentation/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/api-documentation/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/api-documentation/">
         </link>
         <updated>2020-05-10T05:59:07.000Z</updated>
         <content type="html"><![CDATA[<p>This part of the documentation is automatically generated from the PubChemPy source code and comments.</p>
@@ -456,8 +456,8 @@ e.刷新权限表或者重启mysql<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Webdriver Notes]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/webdriver-notes/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/webdriver-notes/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/webdriver-notes/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/webdriver-notes/">
         </link>
         <updated>2020-05-10T05:51:33.000Z</updated>
         <content type="html"><![CDATA[<h1 id="1">1</h1>
@@ -802,8 +802,8 @@ def test_Refresh(self):
     </entry>
     <entry>
         <title type="html"><![CDATA[Python 填写问卷]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/python-tian-xie-wen-juan/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/python-tian-xie-wen-juan/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/python-tian-xie-wen-juan/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/python-tian-xie-wen-juan/">
         </link>
         <updated>2020-05-10T05:48:10.000Z</updated>
         <content type="html"><![CDATA[<p>#Read me<br>
@@ -849,8 +849,8 @@ dr.find_element_by_xpath(&quot;/html/body/form/div[5]/div[7]/div[3]/div[1]/a[1]&
     </entry>
     <entry>
         <title type="html"><![CDATA[Spring like mushrooms!]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/spring-like-mushrooms/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/spring-like-mushrooms/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/spring-like-mushrooms/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/spring-like-mushrooms/">
         </link>
         <updated>2020-05-10T05:47:36.000Z</updated>
         <content type="html"><![CDATA[<p>When the weather outdoors gets warmer, flowers appear and birds become more active. Spring has sprung!</p>
@@ -877,14 +877,14 @@ Let's say two people, Tara and Sam, own a business together. The company is call
     </entry>
     <entry>
         <title type="html"><![CDATA[每天进步一点点20200507]]></title>
-        <id>https://jiangtao639.github.io/blogoftao/post/mei-tian-jin-bu-yi-dian-dian-20200507/</id>
-        <link href="https://jiangtao639.github.io/blogoftao/post/mei-tian-jin-bu-yi-dian-dian-20200507/">
+        <id>http://jiangtao639.github.io/BlogOfTao/post/mei-tian-jin-bu-yi-dian-dian-20200507/</id>
+        <link href="http://jiangtao639.github.io/BlogOfTao/post/mei-tian-jin-bu-yi-dian-dian-20200507/">
         </link>
         <updated>2020-05-07T08:30:05.000Z</updated>
         <content type="html"><![CDATA[<h1 id="每日一句">每日一句</h1>
 <p><b>The farther behind I leave the past, the closer I am to forging my own character.</b></p>
 <h2 id="绝望主妇-汉译英">绝望主妇 汉译英</h2>
-<figure data-type="image" tabindex="1"><img src="https://jiangtao639.github.io/blogoftao//post-images/1588840385952.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="http://jiangtao639.github.io/BlogOfTao//post-images/1588840385952.jpg" alt="" loading="lazy"></figure>
 <h3 id="翻译">翻译:</h3>
 <p>
 you have stolen it,right?
@@ -903,7 +903,7 @@ Susan,let's not be unpleasant!
 we could be good friends as before/like  once we've always had 
 </p>
 ## 哈利波特 英译汉
-![](https://jiangtao639.github.io/blogoftao//post-images/1588841700097.jpg)
+![](http://jiangtao639.github.io/BlogOfTao//post-images/1588841700097.jpg)
 ### 翻译
 <p>
   当魔术帽唱完歌后，整个大厅里掌声雷动。帽子哥向四个桌子的人鞠躬后，然后陷入寂静再次。
